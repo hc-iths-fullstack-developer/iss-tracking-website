@@ -253,8 +253,22 @@
           </h2>
 
           <div class="video-container">
-            <!-- NASA video embed will go here -->
-            <p class="paragraph">NASA video embed will go here</p>
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/M3HKLzjvKPc"
+              title="Live video from the International Space Station — NASA"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            >
+            </iframe>
           </div>
         </section>
 
@@ -274,10 +288,9 @@
           <div
             id="iss-map"
             class="map-container"
-          >
-            <!-- Map or globe visualization will go here -->
-            <p class="paragraph">Map or globe visualization will go here</p>
-          </div>
+            role="region"
+            aria-label="Interactive globe showing Earth"
+          ></div>
         </section>
 
         <!-- 4. Live Telemetry -->
