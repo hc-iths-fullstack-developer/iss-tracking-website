@@ -1,0 +1,9 @@
+{
+  "name": "native-javascript",
+  "private": true,
+  "scripts": {
+    "lint": "eslint .",
+    "dev": "vite",
+    "build": "vite build"
+  }
+}
