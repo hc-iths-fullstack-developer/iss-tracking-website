@@ -2,8 +2,9 @@
   "name": "native-javascript",
   "private": true,
   "scripts": {
-    "lint": "eslint .",
+    "build:css": "sass --style=expanded --no-source-map styles/main.scss:styles/main.css && stylelint --config ../../../stylelint.config.mjs styles/main.css --fix",
+    "watch:css": "npm run build:css && onchange \"styles/main.scss\" -- npm run build:css",
     "dev": "vite",
-    "build": "vite build"
+    "build": "npm run build:css && vite build"
   }
 }
