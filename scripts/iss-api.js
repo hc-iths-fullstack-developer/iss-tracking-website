@@ -8,8 +8,11 @@ const getISSData = async () => {
     const data = response.data;
 
     console.table(data);
+
+    return data;
   } catch (error) {
     console.error('Could not retrieve ISS position:', error);
+    return null;
   }
 };
 
