@@ -20,6 +20,7 @@ const updateISSMarker = (map, latitude, longitude) => {
   }
 };
 
+// Create and Initialize the Map
 const initializeISSMap = () => {
   const mapContainer = document.getElementById('iss-map');
 
@@ -28,6 +29,7 @@ const initializeISSMap = () => {
   }
 
   const map = new MapLibreMap({
+    attributionControl: false,
     container: mapContainer,
     style: 'https://demotiles.maplibre.org/globe.json',
     center: [0, 20],
