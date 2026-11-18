@@ -172,7 +172,7 @@ $sections: (
 
   // Borders
   --border-radius-base: 0;
-  --border-radius-sm: 2px;
+  --border-radius-sm: 10px;
   --border-width-base: 1px;
   --border-width-sm: 2px;
 
@@ -293,7 +293,6 @@ html {
   color: var(--color-text);
   font-family: 'JetBrains Mono', monospace;
   font-weight: var(--font-weight-heading);
-  margin-block: var(--spacing-sm) var(--spacing-base);
 }
 
 .link {
@@ -652,53 +651,10 @@ html {
 }
 
 .section {
-  padding-top: var(--header-height);
-
-  &.right-aligned {
-    background: linear-gradient(
-      90deg,
-      transparent,
-      var(--color-background-hover)
-    );
-
-    .panel-picture {
-      order: unset;
-    }
-
-    @media (width >= $breakpoint-sm) {
-      .panel-picture {
-        order: 2;
-      }
-    }
-  }
-
-  &.left-aligned {
-    background: linear-gradient(
-      270deg,
-      transparent,
-      var(--color-background-hover)
-    );
-  }
-
-  &.index {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    min-height: calc(50dvh - var(--header-height) / 2);
-    padding-bottom: var(--header-height);
-
-    > .container {
-      flex: 1;
-
-      > .panel-figure {
-        flex: 1;
-      }
-    }
-  }
-
-  &:last-child {
-    padding-bottom: var(--header-height);
-  }
+  background-color: var(--color-background);
+  border-radius: var(--border-radius-sm);
+  border: solid var(--border-width-base) var(--color-accent-hover);
+  padding: var(--spacing-base);
 }
 
 .divider {
@@ -1054,8 +1010,6 @@ html {
   display: grid;
   grid-template-areas:
     'header'
-    'hero'
-    'aside'
     'main'
     'footer';
   grid-template-columns: 1fr;
@@ -1066,45 +1020,6 @@ html {
     1fr
     auto;
   justify-items: center;
-
-  &.index-page {
-    grid-template-areas:
-      'header'
-      'hero'
-      'main'
-      'footer';
-    grid-template-columns: 1fr;
-    grid-template-rows:
-      var(--header-height)
-      auto
-      1fr
-      auto;
-  }
-
-  .aside {
-    background-color: var(--color-background);
-    grid-area: aside;
-    height: auto;
-    width: var(--aside-width-sm);
-    z-index: var(--earth-index);
-
-    .container {
-      align-items: end;
-      justify-content: start;
-      margin-inline: unset;
-      height: 100%; // needed for sticky toc
-    }
-
-    @media (width >= $breakpoint-md) {
-      align-content: start;
-      justify-self: end;
-      width: var(--aside-width-md);
-    }
-
-    @media (width >= $breakpoint-lg) {
-      width: var(--aside-width-lg);
-    }
-  }
 
   .footer {
     background-color: var(--color-surface);
@@ -1117,8 +1032,8 @@ html {
     z-index: var(--hell-index);
 
     .section {
-      min-height: unset;
-      padding-block: unset;
+      background-color: unset;
+      border: unset;
     }
   }
 
@@ -1141,201 +1056,6 @@ html {
       @media (width >= $breakpoint-md) {
         gap: calc(var(--spacing-base) * 2);
       }
-    }
-  }
-
-  .hero {
-    align-items: center;
-    background-attachment: fixed;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    grid-area: hero;
-    height: calc(100dvh - var(--header-height));
-    isolation: isolate;
-    justify-content: center;
-    scroll-margin-top: var(--header-height);
-    position: relative;
-    width: 100%;
-
-    &.hero-black-holes {
-      background-image: url('../images/black-holes-hero-small/frame-0001.webp');
-
-      @media (width >= $breakpoint-md) {
-        background-image: url('../images/black-holes-hero-medium/frame-0001.webp');
-      }
-
-      @media (width >= $breakpoint-lg) {
-        background-image: url('../images/black-holes-hero-large/frame-0001.webp');
-      }
-    }
-
-    &.hero-exoplanets {
-      background-image: url('../images/exoplanets-hero-small.webp');
-
-      @media (width >= $breakpoint-md) {
-        background-image: url('../images/exoplanets-hero-medium.webp');
-      }
-
-      @media (width >= $breakpoint-lg) {
-        background-image: url('../images/exoplanets-hero-large.webp');
-      }
-    }
-
-    &.hero-galaxies {
-      background-image: url('../images/galaxies-hero-small.webp');
-
-      @media (width >= $breakpoint-md) {
-        background-image: url('../images/galaxies-hero-medium.webp');
-      }
-
-      @media (width >= $breakpoint-lg) {
-        background-image: url('../images/galaxies-hero-large.webp');
-      }
-    }
-
-    &.hero-stars {
-      background-image: url('../images/star-hero-small/frame-0001.webp');
-
-      @media (width >= $breakpoint-md) {
-        background-image: url('../images/star-hero-medium/frame-0001.webp');
-      }
-
-      @media (width >= $breakpoint-lg) {
-        background-image: url('../images/star-hero-large/frame-0001.webp');
-      }
-    }
-
-    &.hero-universe {
-      overflow: hidden;
-
-      .space-layer {
-        animation: none;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        inset: 0;
-        position: absolute;
-        pointer-events: none;
-
-        &.space-bg {
-          background-image: url('../images/universe-hero-large/01-dark-distant-space.png');
-          z-index: 0;
-
-          @media (width >= $breakpoint-md) {
-            //background-image: url('../images/universe-hero-medium.webp');
-          }
-
-          @media (width >= $breakpoint-lg) {
-            //background-image: url('../images/universe-hero-large.webp');
-          }
-        }
-
-        &.small-stars {
-          background-image: url('../images/universe-hero-large/02-distant-stars-and-galaxies.png');
-          z-index: 1;
-
-          @media (width >= $breakpoint-md) {
-            //background-image: url('../images/universe-hero-medium.webp');
-          }
-
-          @media (width >= $breakpoint-lg) {
-            //background-image: url('../images/universe-hero-large.webp');
-          }
-        }
-
-        &.medium-stars {
-          background-image: url('../images/universe-hero-large/03-medium-stars.png');
-          z-index: 2;
-
-          @media (width >= $breakpoint-md) {
-            //background-image: url('../images/universe-hero-medium.webp');
-          }
-
-          @media (width >= $breakpoint-lg) {
-            //background-image: url('../images/universe-hero-large.webp');
-          }
-        }
-
-        &.space-nebula {
-          background-image: url('../images/universe-hero-large/04-horsehead-nebula.png');
-          z-index: 3;
-
-          @media (width >= $breakpoint-md) {
-            //background-image: url('../images/universe-hero-medium.webp');
-          }
-
-          @media (width >= $breakpoint-lg) {
-            //background-image: url('../images/universe-hero-large.webp');
-          }
-        }
-
-        &.big-stars {
-          background-image: url('../images/universe-hero-large/05-bright-foreground-stars.png');
-          z-index: 4;
-
-          @media (width >= $breakpoint-md) {
-            //background-image: url('../images/universe-hero-medium.webp');
-          }
-
-          @media (width >= $breakpoint-lg) {
-            //background-image: url('../images/universe-hero-large.webp');
-          }
-        }
-      }
-    }
-
-    .container {
-      justify-content: center;
-      z-index: 5;
-
-      .heading-wrapper {
-        padding-block: var(--header-height);
-        width: 100%;
-      }
-
-      .subtitle-wrapper {
-        align-self: flex-end;
-        padding-block: var(--header-height);
-        width: 100%;
-      }
-
-      @media (width >= $breakpoint-md) {
-        align-items: start;
-      }
-    }
-
-    &[data-frame-animation] {
-      --frame-size: small;
-      clip-path: inset(0);
-
-      .hero-frames {
-        display: block;
-        height: 100%;
-        inset: 0;
-        pointer-events: none;
-        position: fixed;
-        width: 100%;
-        z-index: 0;
-      }
-    }
-
-    @media (width >= $breakpoint-md) {
-      &[data-frame-animation] {
-        --frame-size: medium;
-      }
-    }
-
-    @media (width >= $breakpoint-lg) {
-      &[data-frame-animation] {
-        --frame-size: large;
-      }
-    }
-
-    @media only screen and (max-device-width: $breakpoint-lg) {
-      background-attachment: scroll;
     }
   }
 
@@ -1366,8 +1086,7 @@ html {
   @media (width >= $breakpoint-md) {
     grid-template-areas:
       'header header header'
-      'hero hero hero'
-      'aside main .'
+      '. main .'
       'footer footer footer';
     grid-template-columns: var(--aside-width-md) auto var(--aside-width-md);
     grid-template-rows:
