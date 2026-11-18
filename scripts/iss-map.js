@@ -1,17 +1,22 @@
-import { Map as MapLibreMap, Marker, setWorkerUrl } from 'maplibre-gl';
+  Marker,
+  setWorkerUrl,
 import 'maplibre-gl/dist/maplibre-gl.css';
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 
 setWorkerUrl(workerUrl);
 
+// Create a Custom Marker
 let issMarker;
 
 const updateISSMarker = (map, latitude, longitude) => {
   const coordinates = [longitude, latitude];
+  const markerElement = document.createElement('div');
+
+  markerElement.className = 'iss-marker';
 
   if (!issMarker) {
     issMarker = new Marker({
-      color: '#e63946',
+      element: markerElement,
     })
       .setLngLat(coordinates)
       .addTo(map);
