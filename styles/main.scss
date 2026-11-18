@@ -142,9 +142,9 @@ $sections: (
 
 :root {
   // Colors
-  --color-accent: #ff7de9;
-  --color-accent-hover: #ffa4f0;
-  --color-accent-subtle: #ff7de959;
+  --color-accent: #00f7ff;
+  --color-accent-hover: #6ffaff;
+  --color-accent-subtle: #00b6bd;
   --color-background: #0a0a0a;
   --color-background-hover: #1a1a1a;
   --color-surface: #1a1a1a;
@@ -192,39 +192,39 @@ $sections: (
   --hover-opacity-effect: opacity 0.3s ease;
 
   // Typography
-  --font-size-2xs: #{$p5-font-size-2b};
-  --font-size-xs: #{$p5-font-size-1b};
-  --font-size-base: #{$p5-font-size};
-  --font-size-sm: #{$p5-font-size-1};
-  --font-size-md: #{$p5-font-size-2};
-  --font-size-lg: #{$p5-font-size-3};
-  --font-size-xl: #{$p5-font-size-4};
-  --font-size-2xl: #{$p5-font-size-5};
-  --font-size-3xl: #{$p5-font-size-6};
+  --font-size-2xs: #{$p4-font-size-2b};
+  --font-size-xs: #{$p4-font-size-1b};
+  --font-size-base: #{$p4-font-size};
+  --font-size-sm: #{$p4-font-size-1};
+  --font-size-md: #{$p4-font-size-2};
+  --font-size-lg: #{$p4-font-size-3};
+  --font-size-xl: #{$p4-font-size-4};
+  --font-size-2xl: #{$p4-font-size-5};
+  --font-size-3xl: #{$p4-font-size-6};
 
   --font-weight-heading: 700;
   --font-weight-text: 400;
   --font-weight-text-active: 700;
 
-  --letter-space-2xs: #{$p5-letter-space-2b};
-  --letter-space-xs: #{$p5-letter-space-1b};
-  --letter-space-base: #{$p5-letter-space};
-  --letter-space-sm: #{$p5-line-height-1};
-  --letter-space-md: #{$p5-line-height-2};
-  --letter-space-lg: #{$p5-line-height-3};
-  --letter-space-xl: #{$p5-line-height-4};
-  --letter-space-2xl: #{$p5-line-height-5};
-  --letter-space-3xl: #{$p5-line-height-6};
+  --letter-space-2xs: #{$p4-letter-space-2b};
+  --letter-space-xs: #{$p4-letter-space-1b};
+  --letter-space-base: #{$p4-letter-space};
+  --letter-space-sm: #{$p4-line-height-1};
+  --letter-space-md: #{$p4-line-height-2};
+  --letter-space-lg: #{$p4-line-height-3};
+  --letter-space-xl: #{$p4-line-height-4};
+  --letter-space-2xl: #{$p4-line-height-5};
+  --letter-space-3xl: #{$p4-line-height-6};
 
-  --line-height-2xs: #{$p5-line-height-2b};
-  --line-height-xs: #{$p5-line-height-1b};
-  --line-height-base: #{$p5-line-height};
-  --line-height-sm: #{$p5-line-height-1};
-  --line-height-md: #{$p5-line-height-2};
-  --line-height-lg: #{$p5-line-height-3};
-  --line-height-xl: #{$p5-line-height-4};
-  --line-height-2xl: #{$p5-line-height-5};
-  --line-height-3xl: #{$p5-line-height-6};
+  --line-height-2xs: #{$p4-line-height-2b};
+  --line-height-xs: #{$p4-line-height-1b};
+  --line-height-base: #{$p4-line-height};
+  --line-height-sm: #{$p4-line-height-1};
+  --line-height-md: #{$p4-line-height-2};
+  --line-height-lg: #{$p4-line-height-3};
+  --line-height-xl: #{$p4-line-height-4};
+  --line-height-2xl: #{$p4-line-height-5};
+  --line-height-3xl: #{$p4-line-height-6};
 
   --text-max-width: 80ch;
 
@@ -366,37 +366,16 @@ html {
 }
 
 .section-title {
-  border-left-color: var(--color-accent);
-  border-left-style: solid;
-  border-left-width: var(--border-width-sm);
   font-size: var(--font-size-md);
   letter-spacing: var(--letter-space-md);
   line-height: var(--line-height-md);
-  padding-left: var(--spacing-sm);
-
-  @media (width >= $breakpoint-xs) {
-    font-size: var(--font-size-lg);
-    letter-spacing: var(--letter-space-lg);
-    line-height: var(--line-height-lg);
-  }
-
-  @media (width >= $breakpoint-md) {
-    font-size: var(--font-size-xl);
-    letter-spacing: var(--letter-space-xl);
-    line-height: var(--line-height-xl);
-  }
-
-  @media (width >= $breakpoint-lg) {
-    font-size: var(--font-size-2xl);
-    letter-spacing: var(--letter-space-2xl);
-    line-height: var(--line-height-2xl);
-  }
 }
 
 .card-title {
-  font-size: var(--font-size-sm);
-  letter-spacing: var(--letter-space-sm);
+  font-size: var(--font-size-base);
+  letter-spacing: var(--letter-space-base);
   line-height: var(--line-height-sm);
+  text-transform: uppercase;
   margin: 0;
 }
 
@@ -729,7 +708,7 @@ html {
   width: 100%;
 }
 
-.video-container {
+.video-wrapper {
   width: 100%;
   aspect-ratio: 16 / 9;
 
@@ -740,7 +719,7 @@ html {
   }
 }
 
-.map-container {
+.map-wrapper {
   width: 100%;
   height: 450px;
 }

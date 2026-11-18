@@ -48,9 +48,9 @@
 
 /* above the base */
 :root {
-  --color-accent: #ff7de9;
-  --color-accent-hover: #ffa4f0;
-  --color-accent-subtle: #ff7de959;
+  --color-accent: #00f7ff;
+  --color-accent-hover: #6ffaff;
+  --color-accent-subtle: #00b6bd;
   --color-background: #0a0a0a;
   --color-background-hover: #1a1a1a;
   --color-surface: #1a1a1a;
@@ -82,36 +82,36 @@
   --hover-border-color-effect: border-color 0.3s ease;
   --hover-color-effect: color 0.3s ease;
   --hover-opacity-effect: opacity 0.3s ease;
-  --font-size-2xs: 0.4375rem;
-  --font-size-xs: 0.6875rem;
+  --font-size-2xs: 0.5625rem;
+  --font-size-xs: 0.75rem;
   --font-size-base: 1rem;
-  --font-size-sm: 1.5rem;
-  --font-size-md: 2.25rem;
-  --font-size-lg: 3.375rem;
-  --font-size-xl: 5.0625rem;
-  --font-size-2xl: 7.5625rem;
-  --font-size-3xl: 11.3125rem;
+  --font-size-sm: 1.3125rem;
+  --font-size-md: 1.8125rem;
+  --font-size-lg: 2.375rem;
+  --font-size-xl: 3.1875rem;
+  --font-size-2xl: 4.25rem;
+  --font-size-3xl: 5.6875rem;
   --font-weight-heading: 700;
   --font-weight-text: 400;
   --font-weight-text-active: 700;
-  --letter-space-2xs: 0.1186em;
-  --letter-space-xs: 0.0645em;
+  --letter-space-2xs: 0.0856em;
+  --letter-space-xs: 0.0567em;
   --letter-space-base: 0.035em;
   --letter-space-sm: 1.3333;
-  --letter-space-md: 1.2222;
-  --letter-space-lg: 1.1852;
-  --letter-space-xl: 1.0864;
-  --letter-space-2xl: 1.0579;
-  --letter-space-3xl: 1.0387;
-  --line-height-2xs: 2.2857;
-  --line-height-xs: 1.8182;
+  --letter-space-md: 1.2414;
+  --letter-space-lg: 1.2632;
+  --letter-space-xl: 1.1765;
+  --letter-space-2xl: 1.1176;
+  --letter-space-3xl: 1.0989;
+  --line-height-2xs: 1.7778;
+  --line-height-xs: 1.6667;
   --line-height-base: 1.5;
   --line-height-sm: 1.3333;
-  --line-height-md: 1.2222;
-  --line-height-lg: 1.1852;
-  --line-height-xl: 1.0864;
-  --line-height-2xl: 1.0579;
-  --line-height-3xl: 1.0387;
+  --line-height-md: 1.2414;
+  --line-height-lg: 1.2632;
+  --line-height-xl: 1.1765;
+  --line-height-2xl: 1.1176;
+  --line-height-3xl: 1.0989;
   --text-max-width: 80ch;
   --heaven-index: 100;
   --earth-index: 50;
@@ -205,43 +205,16 @@ html {
 }
 
 .section-title {
-  border-left-color: var(--color-accent);
-  border-left-style: solid;
-  border-left-width: var(--border-width-sm);
   font-size: var(--font-size-md);
   letter-spacing: var(--letter-space-md);
   line-height: var(--line-height-md);
-  padding-left: var(--spacing-sm);
-}
-
-@media (width >= 22.5rem) {
-  .section-title {
-    font-size: var(--font-size-lg);
-    letter-spacing: var(--letter-space-lg);
-    line-height: var(--line-height-lg);
-  }
-}
-
-@media (width >= 80rem) {
-  .section-title {
-    font-size: var(--font-size-xl);
-    letter-spacing: var(--letter-space-xl);
-    line-height: var(--line-height-xl);
-  }
-}
-
-@media (width >= 100rem) {
-  .section-title {
-    font-size: var(--font-size-2xl);
-    letter-spacing: var(--letter-space-2xl);
-    line-height: var(--line-height-2xl);
-  }
 }
 
 .card-title {
-  font-size: var(--font-size-sm);
-  letter-spacing: var(--letter-space-sm);
+  font-size: var(--font-size-base);
+  letter-spacing: var(--letter-space-base);
   line-height: var(--line-height-sm);
+  text-transform: uppercase;
   margin: 0;
 }
 
@@ -563,18 +536,18 @@ html {
   width: 100%;
 }
 
-.video-container {
+.video-wrapper {
   width: 100%;
   aspect-ratio: 16/9;
 }
 
-.video-container iframe {
+.video-wrapper iframe {
   width: 100%;
   height: 100%;
   border: 0;
 }
 
-.map-container {
+.map-wrapper {
   width: 100%;
   height: 450px;
 }
