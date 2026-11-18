@@ -49,6 +49,24 @@ const initializeISSMap = () => {
     zoom: 1.5,
   });
 
+  const spinGlobe = () => {
+    const center = map.getCenter();
+
+    center.lng -= 2;
+
+    map.easeTo({
+      center,
+      duration: 1000,
+      easing: (t) => t,
+    });
+  };
+
+  // Start spinning when the map has loaded
+  map.once('load', spinGlobe);
+
+  // Continue spinning after each movement
+  map.on('moveend', spinGlobe);
+
   return map;
 };
 
