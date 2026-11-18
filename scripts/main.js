@@ -17,7 +17,7 @@ const updateISSPosition = async () => {
 
   map.flyTo({
     center: [data.longitude, data.latitude],
-    zoom: 1.5
+    zoom: 1,
   });
 };
 
