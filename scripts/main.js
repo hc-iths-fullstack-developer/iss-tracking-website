@@ -1,4 +1,10 @@
 import { getISSData } from './iss-api.js';
+import { initializeISSMap, updateISSMarker } from './iss-map.js';
+import { subsolarPoint } from './globe/sun.js';
+import { addProtocol } from 'maplibre-gl';
+import { daylightProtocol } from './globe/protocols.js';
+
+addProtocol('daylight', daylightProtocol);
 import {
   initializeISSMap,
   updateISSMarker
