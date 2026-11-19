@@ -46,7 +46,7 @@ const initializeISSMap = () => {
     center: [0, 20],
     container: mapContainer,
     style: globeStyle(new Date(), [0, 20]),
-    zoom: 1.5,
+    zoom: 2,
   });
 
   const spinGlobe = () => {
