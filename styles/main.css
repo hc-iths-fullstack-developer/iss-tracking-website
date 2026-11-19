@@ -49,10 +49,7 @@
 /* above the base */
 :root {
   --color-accent: #00f7ff;
-  --color-accent-hover: #6ffaff;
-  --color-accent-subtle: #00b7bd0e;
   --color-background: #0a0a0a;
-  --color-background-hover: #1a1a1a;
   --color-card-bg: #1b1e22;
   --color-card-border: #2e3338;
   --color-card-hover: #2c2c2c;
@@ -63,6 +60,7 @@
   --color-text-subtle: #b9b9b8;
   --color-wrapper: #0a0a0ad7;
   --color-header-border: #2e3338;
+  --color-header-bg: #1b1e2286;
   --color-footer-border: #2e3338;
   --aside-width-sm: 100%;
   --aside-width-md: 12.5rem;
@@ -548,6 +546,9 @@ html {
 .logo {
   height: var(--header-height);
   padding: var(--spacing-base);
+  border-style: solid;
+  border-color: var(--color-header-border);
+  border-width: 0 var(--border-width-base);
   width: var(--header-height);
 }
 
@@ -651,6 +652,20 @@ html {
   opacity: 1;
 }
 
+.header-nav-group .header-nav-item:first-child {
+  border-left-style: solid;
+  border-left-color: var(--color-header-border);
+  border-left-width: var(--border-width-base);
+  min-width: 150px;
+}
+
+.header-nav-group .header-nav-item:last-child {
+  border-right-style: solid;
+  border-right-color: var(--color-header-border);
+  border-right-width: var(--border-width-base);
+  min-width: 150px;
+}
+
 .body {
   background-color: var(--color-background);
   display: grid;
@@ -673,7 +688,8 @@ html {
 }
 
 .header {
-  background-color: var(--color-card-bg);
+  background-color: var(--color-header-bg);
+  backdrop-filter: blur(8px);
   border-bottom-color: var(--color-header-border);
   border-bottom-style: solid;
   border-bottom-width: var(--border-width-base);
