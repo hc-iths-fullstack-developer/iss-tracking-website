@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:affinity="https://www.affinity.studio/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-    <g transform="matrix(1,0,0,1,-2,-2)">
-        <path d="M32,2C15.542,2 2,15.542 2,32C2,48.458 15.542,62 32,62C48.458,62 62,48.458 62,32C62,15.542 48.458,2 32,2ZM44.59,7L19.41,7C27.321,3.003 36.679,3.003 44.59,7ZM16.06,9L47.94,9C50.334,10.663 52.456,12.687 54.23,15L9.77,15C11.544,12.687 13.666,10.663 16.06,9ZM5.49,41L58.49,41C57.769,43.106 56.802,45.12 55.61,47L8.38,47C7.181,45.123 6.21,43.108 5.49,41ZM4.89,39C4.374,37.039 4.076,35.027 4,33L60,33C59.934,35.025 59.646,37.038 59.14,39L4.89,39ZM4,31C4.066,28.975 4.354,26.962 4.86,25L59.11,25C59.626,26.961 59.924,28.973 60,31L4,31ZM5.46,23C6.18,20.892 7.151,18.877 8.35,17L55.63,17C56.822,18.88 57.789,20.894 58.51,23L5.46,23ZM19.41,57L44.59,57C36.679,60.997 27.321,60.997 19.41,57ZM47.94,55L16.06,55C13.666,53.337 11.544,51.313 9.77,49L54.23,49C52.456,51.313 50.334,53.337 47.94,55Z" style="fill-rule:nonzero;"/>
+<svg width="100%" height="100%" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:affinity="https://www.affinity.studio/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1.00612,0,0,1.00612,-0.244664,-0.244799)">
+        <g id="Globe">
+            <path d="M39.978,0.243C61.92,0.243 79.735,18.058 79.735,40C79.735,61.942 61.92,79.757 39.978,79.757C18.036,79.757 0.221,61.942 0.221,40C0.221,18.058 18.036,0.243 39.978,0.243ZM39.978,6.207C21.327,6.207 6.185,21.349 6.185,40C6.185,58.651 21.327,73.793 39.978,73.793C58.629,73.793 73.771,58.651 73.771,40C73.771,21.349 58.629,6.207 39.978,6.207Z"/>
+        </g>
+    </g>
+    <g id="Arrows" transform="matrix(0,1,-1,0,79.977872,-0.022128)">
+        <g transform="matrix(-1.429606,-0,0,-1.039163,108.700106,76.21138)">
+            <path d="M48.055,5.738L56.111,21.848L40,21.848L48.055,5.738Z"/>
+        </g>
+        <g transform="matrix(1,0,0,1,0,0.022128)">
+            <path d="M40,26.448L40,53.507" style="fill:none;stroke:black;stroke-width:6px;"/>
+        </g>
+        <g transform="matrix(1.429606,0,0,1.039163,-28.700106,3.744363)">
+            <path d="M48.055,5.738L56.111,21.848L40,21.848L48.055,5.738Z"/>
+        </g>
     </g>
 </svg>

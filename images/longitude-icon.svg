@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:affinity="https://www.affinity.studio/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-    <g transform="matrix(1,0,0,1,-2,-2)">
-        <path d="M32,2C15.542,2 2,15.542 2,32C2,48.458 15.542,62 32,62C48.458,62 62,48.458 62,32C62,15.542 48.458,2 32,2ZM31,4.21L31,59.79C27,58.17 23,47.22 23,32C23,16.78 27,5.83 31,4.21ZM33,59.79L33,4.21C37,5.83 41,16.78 41,32C41,47.22 37,58.17 33,59.79ZM21,32C21,42.83 23.22,53.93 27.13,59.06C19,55.89 13,45 13,32C13,19 19,8.11 27.13,4.94C23.22,10.07 21,21.17 21,32ZM43,32C43,21.17 40.78,10.07 36.87,4.94C45,8.11 51,19 51,32C51,45 45,55.89 36.87,59.06C40.78,53.93 43,42.83 43,32ZM4,32C4.002,20.627 10.932,10.337 21.47,6.06C15.21,11.27 11,20.94 11,32C11,43.06 15.21,52.73 21.47,57.94C10.932,53.663 4.002,43.373 4,32ZM42.53,57.94C48.79,52.73 53,43.06 53,32C53,20.94 48.79,11.27 42.53,6.06C53.063,10.34 59.989,20.63 59.989,32C59.989,43.37 53.063,53.66 42.53,57.94Z" style="fill-rule:nonzero;"/>
+<svg width="100%" height="100%" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:affinity="https://www.affinity.studio/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Layer1">
+        <path d="M40,0C62.077,0 80,17.923 80,40C80,62.077 62.077,80 40,80C17.923,80 0,62.077 0,40C0,17.923 17.923,0 40,0ZM40,6C21.235,6 6,21.235 6,40C6,58.765 21.235,74 40,74C58.765,74 74,58.765 74,40C74,21.235 58.765,6 40,6Z"/>
+    </g>
+    <g id="Layer2">
+        <g transform="matrix(1,-0,-0,0.541163,0,18.343328)">
+            <rect x="37" y="5.738" width="6" height="68.48"/>
+        </g>
+        <g transform="matrix(1.429606,0,0,1.039163,-28.700106,3.744363)">
+            <path d="M48.055,5.738L56.111,21.848L40,21.848L48.055,5.738Z"/>
+        </g>
+        <g transform="matrix(-1.429606,-0,0,-1.039163,108.700106,76.21138)">
+            <path d="M48.055,5.738L56.111,21.848L40,21.848L48.055,5.738Z"/>
+        </g>
     </g>
 </svg>
