@@ -225,7 +225,8 @@
       <div class="container">
         <div class="main-wrapper">
           <h1 class="page-title">
-            <span class="emphasis">ISS</span> Tracking Dashboard</h1>
+            <span class="emphasis">ISS</span> Tracking Dashboard
+          </h1>
           <p class="paragraph">
             Live tracking and orbital data from the International Space Station.
           </p>
@@ -385,6 +386,27 @@
                   role="region"
                   aria-label="Interactive globe showing Earth"
                 ></div>
+                <article class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Status</h3>
+                  </div>
+                  <div class="card-contents">
+                    <div class="unit-text">
+                      API Connection:
+                      <span id="api-connection">Disconnected</span>
+                    </div>
+
+                    <div class="unit-text">
+                      Last Update:
+                      <span id="last-update">--</span>
+                    </div>
+
+                    <div class="unit-text">
+                      Next Update:
+                      <span id="next-update">--</span>
+                    </div>
+                  </div>
+                </article>
               </div>
             </section>
           </div>
