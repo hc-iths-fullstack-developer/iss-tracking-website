@@ -203,13 +203,14 @@
       class="main"
     >
       <div class="container">
-        <h1 class="heading page-title">Dashboard</h1>
+        <h1 class="page-title">Dashboard</h1>
         <p class="paragraph">
           Live tracking and orbital data from the International Space Station.
         </p>
 
-        <!-- 1. Tracking Status -->
-        <!-- <section
+        <div class="section-group">
+          <!-- 1. Tracking Status -->
+          <!-- <section
           id="tracking-status"
           class="section"
           aria-labelledby="tracking-status-title"
@@ -233,8 +234,8 @@
           </div>
         </section> -->
 
-        <!-- 2. Live Video Feed -->
-        <!-- <section
+          <!-- 2. Live Video Feed -->
+          <!-- <section
           id="live-feed"
           class="section"
           aria-labelledby="live-feed-title"
@@ -266,93 +267,101 @@
           </div>
         </section> -->
 
-        <!-- 3. ISS Position -->
-        <section
-          id="iss-position"
-          class="section"
-          aria-labelledby="iss-position-title"
-        >
-          <h2
-            id="iss-position-title"
-            class="heading section-title"
+          <!-- 4. Live Telemetry -->
+          <section
+            id="live-telemetry"
+            class="section"
+            aria-labelledby="live-telemetry-title"
           >
-            ISS Position
-          </h2>
+            <h2
+              id="live-telemetry-title"
+              class="section-title"
+            >
+              Live Telemetry
+            </h2>
 
-          <div
-            id="iss-map"
-            class="map-wrapper"
-            role="region"
-            aria-label="Interactive globe showing Earth"
-          ></div>
-        </section>
+            <div class="card-group">
+              <article class="card">
+                <h3 class="heading card-title">
+                  <span class="card-icon icon-altitude"></span>
+                  Altitude
+                </h3>
+                <p class="unit-text">
+                  <span
+                    id="iss-altitude"
+                    class="data-text"
+                    >--</span
+                  >
+                  km
+                </p>
+              </article>
 
-        <!-- 4. Live Telemetry -->
-        <section
-          id="live-telemetry"
-          class="section"
-          aria-labelledby="live-telemetry-title"
-        >
-          <h2
-            id="live-telemetry-title"
-            class="heading section-title"
+              <article class="card">
+                <h3 class="heading card-title">
+                  <span class="card-icon icon-velocity"></span>
+                  Velocity
+                </h3>
+                <p class="unit-text">
+                  <span
+                    id="iss-velocity"
+                    class="data-text"
+                    >--</span
+                  >
+                  km/h
+                </p>
+              </article>
+
+              <article class="card">
+                <h3 class="heading card-title">
+                  <span class="card-icon icon-latitude"></span>
+                  Latitude
+                </h3>
+                <p class="unit-text">
+                  <span
+                    id="iss-latitude"
+                    class="data-text"
+                    >--</span
+                  >°
+                </p>
+              </article>
+
+              <article class="card">
+                <h3 class="heading card-title">
+                  <span class="card-icon icon-longitude"></span>
+                  Longitude
+                </h3>
+                <p class="unit-text">
+                  <span
+                    id="iss-longitude"
+                    class="data-text"
+                    >--</span
+                  >°
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <!-- 3. ISS Position -->
+          <section
+            id="iss-position"
+            class="section"
+            aria-labelledby="iss-position-title"
           >
-            Live Telemetry
-          </h2>
+            <h2
+              id="iss-position-title"
+              class="section-title"
+            >
+              ISS Position
+            </h2>
 
-          <div class="card-group">
-            <article class="card">
-              <h3 class="heading card-title">Altitude</h3>
-              <p class="paragraph"><span id="iss-altitude">--</span> km</p>
-            </article>
-
-            <article class="card">
-              <h3 class="heading card-title">Velocity</h3>
-              <p class="paragraph"><span id="iss-velocity">--</span> km/h</p>
-            </article>
-
-            <article class="card">
-              <h3 class="heading card-title">Latitude</h3>
-              <p class="paragraph"><span id="iss-latitude">--</span>°</p>
-            </article>
-
-            <article class="card">
-              <h3 class="heading card-title">Longitude</h3>
-              <p class="paragraph"><span id="iss-longitude">--</span>°</p>
-            </article>
-          </div>
-        </section>
-
-        <!-- 5. Orbital Information -->
-        <section
-          id="orbital-information"
-          class="section"
-          aria-labelledby="orbital-information-title"
-        >
-          <h2
-            id="orbital-information-title"
-            class="heading section-title"
-          >
-            Orbital Information
-          </h2>
-
-          <div class="card-group">
-            <article class="card">
-              <h3 class="heading card-title">Solar Coordinates</h3>
-              <p class="paragraph">
-                Solar Latitude: <span id="solar-latitude">--</span>°
-              </p>
-              <p class="paragraph">
-                Solar Longitude: <span id="solar-longitude">--</span>°
-              </p>
-            </article>
-
-            <article class="card">
-              <h3 class="heading card-title">Ground Footprint</h3>
-              <p class="paragraph"><span id="iss-footprint">--</span> km</p>
-            </article>
-          </div>
-        </section>
+            <div
+              id="iss-map"
+              class="map-wrapper"
+              role="region"
+              aria-label="Interactive globe showing Earth"
+            ></div>
+          </section>
+        </div>
       </div>
     </main>
 
@@ -366,7 +375,7 @@
           aria-label="Footer navigation"
         >
           <section class="section">
-            <h3 class="heading footer-title">Site Map</h3>
+            <h3 class="footer-title">Site Map</h3>
             <ul class="footer-nav-group">
               <li class="footer-nav-item">
                 <a
@@ -387,18 +396,8 @@
             </ul>
           </section>
           <section class="section">
-            <h3 class="heading footer-title">Sources</h3>
+            <h3 class="footer-title">Design</h3>
             <ul class="footer-nav-group">
-              <li class="footer-nav-item">
-                <a
-                  class="link"
-                  href="https://docs.wheretheiss.at/w/developer"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  API
-                </a>
-              </li>
               <li class="footer-nav-item">
                 <a
                   class="link"
@@ -429,20 +428,65 @@
                   Type Scale
                 </a>
               </li>
+            </ul>
+          </section>
+          <section class="section">
+            <h3 class="footer-title">Icons</h3>
+            <ul class="footer-nav-group">
               <li class="footer-nav-item">
                 <a
                   class="link"
-                  href="https://thenounproject.com/icon/iss-4732348/"
+                  href="https://thenounproject.com/browse/icons/term/iss/"
                   target="_blank"
                   rel="noopener"
                 >
-                  Icon
+                  iss by Arthur Shlain
+                </a>
+              </li>
+              <li class="footer-nav-item">
+                <a
+                  class="link"
+                  href="https://thenounproject.com/browse/icons/term/altitude/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  altitude by SeungJun
+                </a>
+              </li>
+              <li class="footer-nav-item">
+                <a
+                  class="link"
+                  href="https://thenounproject.com/browse/icons/term/longitude/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  longitude by Nithinan Tatah
+                </a>
+              </li>
+              <li class="footer-nav-item">
+                <a
+                  class="link"
+                  href="https://thenounproject.com/browse/icons/term/latitude/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  latitude by Nithinan Tatah
+                </a>
+              </li>
+              <li class="footer-nav-item">
+                <a
+                  class="link"
+                  href="https://thenounproject.com/browse/icons/term/velocity/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  velocity by Chintuza
                 </a>
               </li>
             </ul>
           </section>
           <section class="section">
-            <h3 class="heading footer-title">Code</h3>
+            <h3 class="footer-title">Code</h3>
             <ul class="footer-nav-group">
               <li class="footer-nav-item">
                 <a
@@ -467,8 +511,18 @@
             </ul>
           </section>
           <section class="section">
-            <h3 class="heading footer-title">JS Libraries</h3>
+            <h3 class="footer-title">Libraries & API</h3>
             <ul class="footer-nav-group">
+              <li class="footer-nav-item">
+                <a
+                  class="link"
+                  href="https://docs.wheretheiss.at/w/developer"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  API
+                </a>
+              </li>
               <li class="footer-nav-item">
                 <a
                   class="link"
@@ -492,7 +546,7 @@
             </ul>
           </section>
           <section class="section">
-            <h3 class="heading footer-title">Author</h3>
+            <h3 class="footer-title">Author</h3>
             <ul class="footer-nav-group">
               <li class="footer-nav-item">
                 <a
