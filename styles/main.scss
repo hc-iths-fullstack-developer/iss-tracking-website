@@ -237,27 +237,6 @@ $sections: (
 // ========================================
 // Mixins
 // ========================================
-@mixin toc-nav-active {
-  background: linear-gradient(90deg, transparent, var(--color-accent-subtle));
-  border-right-color: var(--color-accent);
-  border-right-style: solid;
-  border-right-width: var(--border-width-sm);
-  color: var(--color-text);
-  font-weight: var(--font-weight-text-active);
-  margin-right: calc(-1 * var(--border-width-sm));
-}
-
-@mixin main-nav-reset {
-  background-color: unset;
-  display: block;
-  height: 100%;
-  left: unset;
-  padding: unset;
-  position: relative;
-  top: unset;
-  width: unset;
-}
-
 @mixin keyboard-focus {
   color: var(--color-text);
   outline: var(--border-width-sm) solid var(--color-focus, var(--color-accent));
@@ -289,12 +268,6 @@ html {
 // ========================================
 // Typography
 // ========================================
-.heading {
-  color: var(--color-text);
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: var(--font-weight-heading);
-}
-
 .link {
   color: var(--color-accent);
   display: inline-block;
@@ -335,33 +308,8 @@ html {
   letter-spacing: var(--letter-space-lg);
   line-height: var(--line-height-lg);
   margin-block: 0;
-  text-shadow:
-    1px 1px var(--color-accent),
-    2px 2px var(--color-accent),
-    3px 3px var(--color-accent),
-    4px 4px var(--color-accent),
-    5px 5px var(--color-accent),
-    6px 6px 6px var(--color-background);
   text-transform: uppercase;
   z-index: var(--earth-index);
-
-  @media (width >= $breakpoint-xs) {
-    font-size: var(--font-size-xl);
-    letter-spacing: var(--letter-space-xl);
-    line-height: var(--line-height-xl);
-  }
-
-  @media (width >= $breakpoint-md) {
-    font-size: var(--font-size-2xl);
-    letter-spacing: var(--letter-space-2xl);
-    line-height: var(--line-height-2xl);
-  }
-
-  @media (width >= $breakpoint-lg) {
-    font-size: var(--font-size-3xl);
-    letter-spacing: var(--letter-space-3xl);
-    line-height: var(--line-height-3xl);
-  }
 }
 
 .section-title {
@@ -798,87 +746,6 @@ html {
   }
 }
 
-.toc-nav {
-  display: none;
-  max-height: calc(100dvh - var(--header-height) - var(--spacing-base));
-  overflow-y: auto;
-  position: sticky;
-  top: 0;
-  width: 100%;
-
-  .toc-nav-group {
-    border-right-color: var(--color-surface);
-    border-right-style: solid;
-    border-right-width: var(--border-width-sm);
-    display: flex;
-    flex-direction: column;
-    margin-top: var(--spacing-sm);
-
-    .toc-nav-item {
-      align-items: end;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      line-height: 1;
-      width: 100%;
-
-      .toc-nav-link {
-        color: var(--color-text-subtle);
-        font-family: 'Inter', sans-serif;
-        font-size: var(--font-size-xs);
-        isolation: isolate;
-        letter-spacing: var(--letter-space-2xs);
-        line-height: var(--line-height-base);
-        margin-right: unset;
-        padding: var(--spacing-base);
-        position: relative;
-        text-align: end;
-        text-decoration: none;
-        text-transform: uppercase;
-        transition: var(--hover-color-effect);
-        width: 100%;
-
-        &::before {
-          background: linear-gradient(
-            90deg,
-            transparent,
-            var(--color-background-hover)
-          );
-          content: '';
-          inset: 0;
-          opacity: 0;
-          pointer-events: none;
-          position: absolute;
-          transition: var(--hover-opacity-effect);
-          z-index: -1;
-        }
-
-        &:hover {
-          color: var(--color-text);
-
-          &::before {
-            opacity: 1;
-          }
-        }
-
-        &:focus-visible {
-          @include keyboard-focus;
-          outline-offset: calc(var(--border-width-sm) * -1);
-
-          &::before {
-            opacity: 1;
-          }
-        }
-      }
-    }
-  }
-
-  @media (width >= $breakpoint-md) {
-    display: block;
-    padding-top: var(--header-height);
-  }
-}
-
 // ========================================
 // Layout
 // ========================================
@@ -946,16 +813,6 @@ html {
     .container {
       &:not(.index) {
         margin-inline: unset;
-      }
-    }
-  }
-
-  @each $section in $sections {
-    &:has(##{$section}:target) {
-      .toc-nav-item:has(.toc-nav-link[href='##{$section}']) {
-        .toc-nav-link {
-          @include toc-nav-active;
-        }
       }
     }
   }
