@@ -526,14 +526,18 @@ html {
   padding-block: var(--header-height);
 }
 
+.logo-wrapper {
+  padding: var(--spacing-base);
+}
+
 .iss-marker {
   background-color: var(--color-accent);
-  height: 30px;
+  height: 28px;
   mask-image: url("/images/iss-logo.svg");
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
-  width: 30px;
+  width: 28px;
 }
 
 .divider {
@@ -544,22 +548,13 @@ html {
 }
 
 .logo {
-  height: var(--header-height);
-  padding: var(--spacing-base);
-  border-style: solid;
-  border-color: var(--color-header-border);
-  border-width: 0 var(--border-width-base);
-  width: var(--header-height);
-}
-
-.logo svg {
-  display: block;
-  height: 100%;
-  width: 100%;
-}
-
-.logo svg path {
-  fill: var(--color-accent);
+  background-color: var(--color-accent);
+  height: 28px;
+  mask-image: url("/images/iss-logo.svg");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  width: 28px;
 }
 
 .footer-nav {
@@ -598,6 +593,9 @@ html {
 }
 
 .header-nav-group .header-nav-item {
+  border-color: var(--color-header-border);
+  border-style: solid;
+  border-width: 0;
   display: flex;
 }
 
@@ -653,16 +651,12 @@ html {
 }
 
 .header-nav-group .header-nav-item:first-child {
-  border-left-style: solid;
-  border-left-color: var(--color-header-border);
-  border-left-width: var(--border-width-base);
+  border-width: 0 var(--border-width-base);
   min-width: 150px;
 }
 
 .header-nav-group .header-nav-item:last-child {
-  border-right-style: solid;
-  border-right-color: var(--color-header-border);
-  border-right-width: var(--border-width-base);
+  border-width: 0 var(--border-width-base);
   min-width: 150px;
 }
 
