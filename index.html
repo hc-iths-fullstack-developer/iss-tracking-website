@@ -7,6 +7,20 @@
       content="width=device-width, initial-scale=1.0"
       name="viewport"
     >
+    <!-- FONTS -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    >
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    >
+    <link
+      href="https://fonts.googleapis.com/css2?family=Offside&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    >
     <!-- STYLES -->
     <link
       href="../styles/reset.css"
@@ -35,6 +49,7 @@
       name="description"
     >
   </head>
+
   <body
     id="body"
     class="body"
@@ -44,164 +59,162 @@
       class="header"
     >
       <div class="container">
-        <div class="main-nav-wrapper">
-          <nav
-            id="main-nav"
-            aria-label="Main navigation"
-            class="main-nav"
-          >
-            <ul class="main-nav-group">
-              <li class="main-nav-item">
-                <a
-                  class="main-nav-link active"
-                  aria-current="page"
-                  href="index.html"
+        <nav
+          id="header-nav"
+          aria-label="Main navigation"
+          class="header-nav"
+        >
+          <ul class="header-nav-group">
+            <li class="header-nav-item">
+              <a
+                class="header-nav-link active"
+                aria-current="page"
+                href="index.html"
+              >
+                Dashboard
+              </a>
+            </li>
+            <li class="header-nav-item">
+              <div
+                id="logo"
+                class="logo"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xml:space="preserve"
+                  version="1.1"
+                  viewBox="0 0 100 100"
                 >
-                  Dashboard
-                </a>
-              </li>
-              <li class="main-nav-item">
-                <div
-                  id="logo"
-                  class="logo"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xml:space="preserve"
-                    version="1.1"
-                    viewBox="0 0 100 100"
-                  >
-                    <path
-                      d="M10,30L20,30L20,35L10,35L10,30Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M10,40L20,40L20,45L10,45L10,40Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M10,20L20,20L20,25L10,25L10,20Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M10,10L20,10L20,15L10,15L10,10Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M25,30L35,30L35,35L25,35L25,30Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M25,20L35,20L35,25L25,25L25,20Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M25,10L35,10L35,15L25,15L25,10Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M10,75L20,75L20,80L10,80L10,75Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M10,85L20,85L20,90L10,90L10,85Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M10,65L20,65L20,70L10,70L10,65Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M10,55L20,55L20,60L10,60L10,55Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M25,75L35,75L35,80L25,80L25,75Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M25,85L35,85L35,90L25,90L25,85Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M25,65L35,65L35,70L25,70L25,65Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M65,30L75,30L75,35L65,35L65,30Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M75,40L65,40L65,45L55,45L55,40L60,40L60,30L40,30L40,40L45,40L45,45L35,45L35,40L25,40L25,45L20,45L20,55L25,55L25,60L35,60L35,55L45,55L45,60L40,60L40,70L45,70L45,75L45,80L40,80L40,85L45,85L45,90L55,90L55,85L60,85L60,80L55,80L55,75L55,70L60,70L60,60L55,60L55,55L65,55L65,60L75,60L75,55L80,55L80,45L75,45Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M65,20L75,20L75,25L65,25L65,20Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M65,10L75,10L75,15L65,15L65,10Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M80,30L90,30L90,35L80,35L80,30Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M80,40L90,40L90,45L80,45L80,40Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M80,20L90,20L90,25L80,25L80,20Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M80,10L90,10L90,15L80,15L80,10Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M65,75L75,75L75,80L65,80L65,75Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M65,85L75,85L75,90L65,90L65,85Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M65,65L75,65L75,70L65,70L65,65Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M80,75L90,75L90,80L80,80L80,75Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M80,85L90,85L90,90L80,90L80,85Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M80,65L90,65L90,70L80,70L80,65Z"
-                      stroke="none"
-                    />
-                    <path
-                      d="M80,55L90,55L90,60L80,60L80,55Z"
-                      stroke="none"
-                    />
-                  </svg>
-                </div>
-              </li>
-              <li class="main-nav-item">
-                <a
-                  class="main-nav-link"
-                  href="pages/orbit.html"
-                >
-                  Orbit
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+                  <path
+                    d="M10,30L20,30L20,35L10,35L10,30Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M10,40L20,40L20,45L10,45L10,40Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M10,20L20,20L20,25L10,25L10,20Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M10,10L20,10L20,15L10,15L10,10Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M25,30L35,30L35,35L25,35L25,30Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M25,20L35,20L35,25L25,25L25,20Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M25,10L35,10L35,15L25,15L25,10Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M10,75L20,75L20,80L10,80L10,75Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M10,85L20,85L20,90L10,90L10,85Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M10,65L20,65L20,70L10,70L10,65Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M10,55L20,55L20,60L10,60L10,55Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M25,75L35,75L35,80L25,80L25,75Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M25,85L35,85L35,90L25,90L25,85Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M25,65L35,65L35,70L25,70L25,65Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M65,30L75,30L75,35L65,35L65,30Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M75,40L65,40L65,45L55,45L55,40L60,40L60,30L40,30L40,40L45,40L45,45L35,45L35,40L25,40L25,45L20,45L20,55L25,55L25,60L35,60L35,55L45,55L45,60L40,60L40,70L45,70L45,75L45,80L40,80L40,85L45,85L45,90L55,90L55,85L60,85L60,80L55,80L55,75L55,70L60,70L60,60L55,60L55,55L65,55L65,60L75,60L75,55L80,55L80,45L75,45Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M65,20L75,20L75,25L65,25L65,20Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M65,10L75,10L75,15L65,15L65,10Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M80,30L90,30L90,35L80,35L80,30Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M80,40L90,40L90,45L80,45L80,40Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M80,20L90,20L90,25L80,25L80,20Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M80,10L90,10L90,15L80,15L80,10Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M65,75L75,75L75,80L65,80L65,75Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M65,85L75,85L75,90L65,90L65,85Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M65,65L75,65L75,70L65,70L65,65Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M80,75L90,75L90,80L80,80L80,75Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M80,85L90,85L90,90L80,90L80,85Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M80,65L90,65L90,70L80,70L80,65Z"
+                    stroke="none"
+                  />
+                  <path
+                    d="M80,55L90,55L90,60L80,60L80,55Z"
+                    stroke="none"
+                  />
+                </svg>
+              </div>
+            </li>
+            <li class="header-nav-item">
+              <a
+                class="header-nav-link"
+                href="pages/orbit.html"
+              >
+                Orbit
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
 
@@ -210,16 +223,17 @@
       class="main"
     >
       <div class="container">
-        <h1 class="page-title">Dashboard</h1>
-        <p class="paragraph">
-          Live tracking and orbital data from the International Space Station.
-        </p>
+        <div class="main-wrapper">
+          <h1 class="page-title">ISS Tracking Dashboard</h1>
+          <p class="paragraph">
+            Live tracking and orbital data from the International Space Station.
+          </p>
 
-        <div class="section-group">
-          <!-- 1. Tracking Status -->
-          <!-- <section
+          <div class="panel-group">
+            <!-- 1. Tracking Status -->
+            <!-- <section
           id="tracking-status"
-          class="section"
+          class="panel"
           aria-labelledby="tracking-status-title"
         >
           <h2
@@ -241,10 +255,10 @@
           </div>
         </section> -->
 
-          <!-- 2. Live Video Feed -->
-          <!-- <section
+            <!-- 2. Live Video Feed -->
+            <!-- <section
           id="live-feed"
-          class="section"
+          class="panel"
           aria-labelledby="live-feed-title"
         >
           <h2
@@ -274,100 +288,103 @@
           </div>
         </section> -->
 
-          <!-- 4. Live Telemetry -->
-          <section
-            id="live-telemetry"
-            class="section"
-            aria-labelledby="live-telemetry-title"
-          >
-            <h2
-              id="live-telemetry-title"
-              class="section-title"
+            <!-- 4. Live Telemetry -->
+            <section
+              id="live-telemetry"
+              aria-labelledby="live-telemetry-title"
+              class="panel"
             >
-              ISS Telemetry
-            </h2>
+              <h2
+                id="live-telemetry-title"
+                class="panel-title"
+              >
+                ISS Telemetry
+              </h2>
 
-            <div class="card-group">
-              <article class="card">
-                <h3 class="card-title">
-                  <span class="card-icon icon-altitude"></span>
-                  Altitude
-                </h3>
-                <p class="unit-text">
-                  <span
-                    id="iss-altitude"
-                    class="data-text"
-                    >--</span
-                  >
-                  km
-                </p>
-              </article>
+              <div class="card-group">
+                <article class="card">
+                  <div class="card-header">
+                    <span class="card-icon icon-altitude"></span>
+                    <h3 class="card-title">Altitude</h3>
+                  </div>
+                  <div class="card-contents">
+                    <span
+                      id="iss-altitude"
+                      class="data-text"
+                      >--</span
+                    >
+                    <span class="unit-text">km</span>
+                  </div>
+                </article>
 
-              <article class="card">
-                <h3 class="card-title">
-                  <span class="card-icon icon-velocity"></span>
-                  Velocity
-                </h3>
-                <p class="unit-text">
-                  <span
-                    id="iss-velocity"
-                    class="data-text"
-                    >--</span
-                  >
-                  km/h
-                </p>
-              </article>
+                <article class="card">
+                  <div class="card-header">
+                    <span class="card-icon icon-velocity"></span>
+                    <h3 class="card-title">Velocity</h3>
+                  </div>
+                  <div class="card-contents">
+                    <span
+                      id="iss-velocity"
+                      class="data-text"
+                      >--</span
+                    >
+                    <span class="unit-text">km/h</span>
+                  </div>
+                </article>
 
-              <article class="card">
-                <h3 class="card-title">
-                  <span class="card-icon icon-latitude"></span>
-                  Latitude
-                </h3>
-                <p class="unit-text">
-                  <span
-                    id="iss-latitude"
-                    class="data-text"
-                    >--</span
-                  >°
-                </p>
-              </article>
+                <article class="card">
+                  <div class="card-header">
+                    <span class="card-icon icon-latitude"></span>
+                    <h3 class="card-title">Latitude</h3>
+                  </div>
+                  <div class="card-contents">
+                    <span
+                      id="iss-latitude"
+                      class="data-text"
+                      >--</span
+                    >
+                    <span class="unit-text">°</span>
+                  </div>
+                </article>
 
-              <article class="card">
-                <h3 class="card-title">
-                  <span class="card-icon icon-longitude"></span>
-                  Longitude
-                </h3>
-                <p class="unit-text">
-                  <span
-                    id="iss-longitude"
-                    class="data-text"
-                    >--</span
-                  >°
-                </p>
-              </article>
-            </div>
-          </section>
+                <article class="card">
+                  <div class="card-header">
+                    <span class="card-icon icon-longitude"></span>
+                    <h3 class="card-title">Longitude</h3>
+                  </div>
+                  <div class="card-contents">
+                    <span
+                      id="iss-longitude"
+                      class="data-text"
+                      >--</span
+                    >
+                    <span class="unit-text">°</span>
+                  </div>
+                </article>
+              </div>
+            </section>
 
-          <!-- 3. ISS Position -->
-          <section
-            id="iss-position"
-            class="section"
-            aria-labelledby="iss-position-title"
-          >
-            <h2
-              id="iss-position-title"
-              class="section-title"
+            <!-- 3. ISS Position -->
+            <section
+              id="iss-position"
+              aria-labelledby="iss-position-title"
+              class="panel"
             >
-              ISS Position
-            </h2>
+              <h2
+                id="iss-position-title"
+                class="panel-title"
+              >
+                ISS Position
+              </h2>
 
-            <div
-              id="iss-map"
-              class="map-wrapper"
-              role="region"
-              aria-label="Interactive globe showing Earth"
-            ></div>
-          </section>
+              <div
+                id="iss-map"
+                class="map-wrapper"
+                role="region"
+                aria-label="Interactive globe showing Earth"
+              ></div>
+            </section>
+          </div>
         </div>
       </div>
     </main>
