@@ -33,7 +33,7 @@ const globeStyle = (date, center) => {
       tiles: [
         // NASA sends these with no-store, so browsers fetch them again on every visit: cached:// keeps
         // them in the site's tile cache, and asks NASA when the cache can't answer (src/tiles/client.ts).
-        'cached://gibs.earthdata.nasa.gov/wmts/epsg3857/best/BlueMarble_NextGeneration/default/GoogleMapsCompatible_Level8/{z}/{y}/{x}.jpeg',
+        'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/BlueMarble_NextGeneration/default/GoogleMapsCompatible_Level8/{z}/{y}/{x}.jpeg',
       ],
       tileSize: 256,
       maxzoom: 8,
