@@ -30,14 +30,15 @@ const globeStyle = (date, center) => {
     // From space: NASA's Blue Marble, a cloud-free mosaic of the whole Earth at 500 m.
     'blue-marble': {
       type: 'raster',
-      // NASA sends these with no-store, so browsers fetch them again on every visit: cached:// keeps
-      // them in the site's tile cache, and asks NASA when the cache can't answer (src/tiles/client.ts).
       tiles: [
-        'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/BlueMarble_NextGeneration/default/GoogleMapsCompatible_Level8/{z}/{y}/{x}.jpeg',
+        // NASA sends these with no-store, so browsers fetch them again on every visit: cached:// keeps
+        // them in the site's tile cache, and asks NASA when the cache can't answer (src/tiles/client.ts).
+        'cached://gibs.earthdata.nasa.gov/wmts/epsg3857/best/BlueMarble_NextGeneration/default/GoogleMapsCompatible_Level8/{z}/{y}/{x}.jpeg',
       ],
       tileSize: 256,
       maxzoom: 8,
-      attribution: 'NASA Blue Marble',
+      attribution:
+        '<a href="https://earthobservatory.nasa.gov/features/BlueMarble">NASA Blue Marble</a>',
     },
     // Closer in: a cloud-free Sentinel-2 mosaic at 10 m. The 2016 edition is CC BY 4.0.
     'sentinel-2': {
@@ -48,22 +49,22 @@ const globeStyle = (date, center) => {
       tileSize: 256,
       minzoom: 5,
       maxzoom: 14,
-      attribution: 'Sentinel-2 cloudless © EOX',
+      attribution:
+        '<a href="https://s2maps.eu">Sentinel-2 cloudless</a> by <a href="https://eox.at">EOX IT Services GmbH</a> (Contains modified Copernicus Sentinel data 2016 &amp; 2017)',
     },
-    // Daylight shading
     shade: {
       type: 'raster',
       tiles: daylightTiles('shade', date),
       tileSize: 256,
       maxzoom: 6,
     },
-    // NASA Black Marble – city lights at night
     night: {
       type: 'raster',
       tiles: daylightTiles('night', date),
       tileSize: 256,
       maxzoom: 8,
-      attribution: 'NASA Black Marble',
+      attribution:
+        '<a href="https://earthobservatory.nasa.gov/features/NightLights">NASA Black Marble</a>',
     },
   };
 
