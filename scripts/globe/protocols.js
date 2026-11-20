@@ -1,14 +1,9 @@
-// Two tile protocols for the globe, registered with maplibregl.addProtocol.
+// A tile protocol for the globe, registered with maplibregl.addProtocol.
 //
 // daylight://{kind}/{z}/{x}/{y}?time={ms} draws the Sun's light on the Earth for one
 // moment, a tile at a time: "shade" darkens the day side as the Sun sinks toward the
 // horizon, "night" lays NASA's Black Marble over the night side. Each pixel gets the
 // Sun's altitude at its own lng/lat, so the terminator is exact at every zoom.
-//
-// ortho://{url without https://} fetches a national orthophoto tile and drops it when
-// the service answers with a blank tile outside its country, so the imagery below shows.
-// Along a border, where a tile is part photo and part the service's white fill, the fill
-// is made see-through.
 import { groundLight, nightfall, subsolarPoint } from './sun.js';
 
 const SIZE = 256;
@@ -125,6 +120,7 @@ const daylightProtocol = async (request) => {
     kind === 'shade'
       ? shade(heights)
       : night(heights, await blackMarble(+z, +x, +y));
+
   // MapLibre blends raster tiles with premultiplied alpha, and an ImageBitmap isn't premultiplied for it on upload.
   const image = new ImageData(pixels, SIZE, SIZE);
   return {

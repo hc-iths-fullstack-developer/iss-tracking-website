@@ -1,4 +1,3 @@
-
 import { getISSData } from './iss-api.js';
 import { initializeISSMap, updateISSMarker } from './iss-map.js';
 import { addProtocol } from 'maplibre-gl';
