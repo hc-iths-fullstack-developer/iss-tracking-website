@@ -306,123 +306,6 @@ html {
   width: 100%;
 }
 
-.card-figure .card-caption .card-details {
-  --preview-height: calc(var(--line-height-base) * 4 * 1rem);
-
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-base);
-  width: 100%;
-}
-
-.card-figure .card-caption .card-details .card-button {
-  align-content: center;
-  align-self: flex-end;
-  background-color: var(--color-card-hover);
-  border-color: var(--color-card-hover);
-  border-radius: var(--border-radius-sm);
-  border-style: solid;
-  border-width: var(--border-width-sm);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  order: 2;
-  outline-offset: calc(var(--border-width-sm) * -1);
-  padding: calc(var(--spacing-base) - var(--border-width-sm)) var(--spacing-sm);
-  transition: var(--hover-background-color-effect), var(--hover-border-color-effect);
-  width: 100%;
-}
-
-.card-figure .card-caption .card-details .card-button .button-text {
-  color: var(--color-text-subtle);
-  font-family: "Inter", sans-serif;
-  font-size: var(--font-size-xs);
-  letter-spacing: var(--letter-space-2xs);
-  transition: var(--hover-color-effect);
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.card-figure .card-caption .card-details .card-button:hover {
-  background-color: var(--color-card-hover);
-  border-color: var(--color-accent);
-}
-
-.card-figure .card-caption .card-details .card-button:hover .button-text {
-  color: var(--color-text);
-}
-
-.card-figure .card-caption .card-details .card-button:focus-visible {
-  color: var(--color-text);
-  outline: var(--border-width-sm) solid var(--color-focus, var(--color-accent));
-  border-radius: var(--border-radius-sm);
-}
-
-.card-figure .card-caption .card-details .card-button:focus-visible .button-text {
-  color: var(--color-text);
-}
-
-.card-figure .card-caption .card-details .card-details-text {
-  min-height: 0;
-  overflow: hidden;
-}
-
-.card-figure .card-caption .card-details .card-details-text > .paragraph {
-  margin: 0;
-}
-
-.card-figure .card-caption .card-details .card-details-text > .paragraph + .paragraph {
-  margin-top: var(--spacing-base);
-}
-
-.card-figure .card-caption .card-details::details-content {
-  content-visibility: visible;
-  display: grid;
-  transition: grid-template-rows 400ms ease;
-}
-
-.card-figure .card-caption .card-details[open]::details-content {
-  grid-template-rows: minmax(var(--preview-height), 1fr);
-}
-
-.card-figure .card-caption .card-details[open] .card-button .read-more {
-  display: none;
-}
-
-.card-figure .card-caption .card-details[open] .card-button .read-less {
-  display: inline;
-}
-
-.card-figure .card-caption .card-details:not([open])::details-content {
-  grid-template-rows: minmax(var(--preview-height), 0fr);
-}
-
-.card-figure .card-caption .card-details:not([open]) .card-button .read-more {
-  display: inline;
-}
-
-.card-figure .card-caption .card-details:not([open]) .card-button .read-less {
-  display: none;
-}
-
-.card-figure .card-caption .card-details:not([open]) .card-details-text > .paragraph:first-child {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
-  overflow: hidden;
-}
-
-.card-figure .card-caption .card-details:not([open]) .card-details-text > .paragraph ~ .paragraph {
-  visibility: hidden;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .card-figure .card-caption .card-details::details-content {
-    transition: none;
-  }
-}
-
 .card-icon {
   background-color: var(--color-accent);
   display: block;
@@ -461,6 +344,54 @@ html {
   display: flex;
   flex-direction: row;
   gap: var(--spacing-base);
+}
+
+.card-button {
+  align-content: center;
+  align-self: flex-end;
+  background-color: var(--color-card-hover);
+  border-color: var(--color-card-hover);
+  border-radius: var(--border-radius-sm);
+  border-style: solid;
+  border-width: var(--border-width-sm);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  order: 2;
+  outline-offset: calc(var(--border-width-sm) * -1);
+  padding: calc(var(--spacing-base) - var(--border-width-sm)) var(--spacing-sm);
+  transition: var(--hover-background-color-effect), var(--hover-border-color-effect);
+  width: 100%;
+}
+
+.card-button .button-text {
+  color: var(--color-text-subtle);
+  font-family: "Inter", sans-serif;
+  font-size: var(--font-size-xs);
+  letter-spacing: var(--letter-space-2xs);
+  transition: var(--hover-color-effect);
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.card-button:hover {
+  background-color: var(--color-card-hover);
+  border-color: var(--color-accent);
+}
+
+.card-button:hover .button-text {
+  color: var(--color-text);
+}
+
+.card-button:focus-visible {
+  color: var(--color-text);
+  outline: var(--border-width-sm) solid var(--color-focus, var(--color-accent));
+  border-radius: var(--border-radius-sm);
+}
+
+.card-button:focus-visible .button-text {
+  color: var(--color-text);
 }
 
 .section-group {
@@ -538,13 +469,6 @@ html {
   mask-repeat: no-repeat;
   mask-position: center;
   width: 28px;
-}
-
-.divider {
-  background-color: var(--color-accent);
-  box-shadow: 2px 2px 6px var(--color-background);
-  height: calc(var(--border-width-sm) * 2);
-  width: 100%;
 }
 
 .logo {
