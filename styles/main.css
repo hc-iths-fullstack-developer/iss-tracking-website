@@ -243,6 +243,16 @@ html {
   line-height: var(--line-height-md);
 }
 
+.status-text {
+  color: var(--color-text);
+  font-family: "Saira Condensed", sans-serif;
+  font-style: normal;
+  font-weight: var(--font-weight-text);
+  font-size: var(--font-size-sm);
+  letter-spacing: var(--letter-space-sm);
+  line-height: var(--line-height-md);
+}
+
 .footer-title {
   color: var(--color-text-subtle);
   font-family: "Saira Condensed", sans-serif;
@@ -260,6 +270,19 @@ html {
   display: grid;
   gap: var(--spacing-base);
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+}
+
+.card-group-iss-position {
+  align-items: stretch;
+  display: grid;
+  gap: var(--spacing-base);
+  grid-template-columns: 1fr;
+}
+
+@media (width >= 80rem) {
+  .card-group-iss-position {
+    grid-template-columns: 1fr auto;
+  }
 }
 
 .card {

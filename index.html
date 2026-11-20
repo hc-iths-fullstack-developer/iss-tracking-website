@@ -139,81 +139,45 @@
           </div>
         </section> -->
 
-            <!-- 4. Live Telemetry -->
-            <section
-              id="live-telemetry"
-              aria-labelledby="live-telemetry-title"
-              class="panel"
-            >
-              <h2
-                id="live-telemetry-title"
-                class="panel-title"
-              >
-                ISS Telemetry
-              </h2>
-
-              <div class="card-group">
-                <article class="card">
-                  <div class="card-header">
-                    <span class="card-icon icon-altitude"></span>
-                    <h3 class="card-title">Altitude</h3>
-                  </div>
-                  <div class="card-contents">
-                    <span
-                      id="iss-altitude"
-                      class="data-text"
-                      >--</span
-                    >
-                    <span class="unit-text">km</span>
-                  </div>
-                </article>
-
-                <article class="card">
-                  <div class="card-header">
-                    <span class="card-icon icon-velocity"></span>
-                    <h3 class="card-title">Velocity</h3>
-                  </div>
-                  <div class="card-contents">
-                    <span
-                      id="iss-velocity"
-                      class="data-text"
-                      >--</span
-                    >
-                    <span class="unit-text">km/h</span>
-                  </div>
-                </article>
-
-                <article class="card">
-                  <div class="card-header">
-                    <span class="card-icon icon-latitude"></span>
-                    <h3 class="card-title">Latitude</h3>
-                  </div>
-                  <div class="card-contents">
-                    <span
-                      id="iss-latitude"
-                      class="data-text"
-                      >--</span
-                    >
-                    <span class="unit-text">°</span>
-                  </div>
-                </article>
-
-                <article class="card">
-                  <div class="card-header">
-                    <span class="card-icon icon-longitude"></span>
-                    <h3 class="card-title">Longitude</h3>
-                  </div>
-                  <div class="card-contents">
-                    <span
-                      id="iss-longitude"
-                      class="data-text"
-                      >--</span
-                    >
-                    <span class="unit-text">°</span>
-                  </div>
-                </article>
+            <!-- 4. API Status -->
+            <article class="card">
+              <div class="card-header">
+                <h3 class="card-title">Status</h3>
               </div>
-            </section>
+              <div class="card-contents">
+                <dl class="api-status">
+                  <div class="api-data">
+                    <dt class="unit-text">API Connection:</dt>
+                    <dd
+                      id="api-connection"
+                      class="status-text"
+                    >
+                      Connecting...
+                    </dd>
+                  </div>
+
+                  <div class="api-data">
+                    <dt class="unit-text">Last Update:</dt>
+                    <dd
+                      id="last-update"
+                      class="status-text"
+                    >
+                      --
+                    </dd>
+                  </div>
+
+                  <div class="api-data">
+                    <dt class="unit-text">Next Update:</dt>
+                    <dd
+                      id="next-update"
+                      class="status-text"
+                    >
+                      --
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </article>
 
             <!-- 3. ISS Position -->
             <section
@@ -228,51 +192,77 @@
                 ISS Position
               </h2>
 
-              <div class="card-group">
+              <div class="card-group-iss-position">
                 <div
                   id="iss-map"
                   class="card map-wrapper"
                   role="region"
                   aria-label="Interactive globe showing Earth"
                 ></div>
-                <article class="card">
-                  <div class="card-header">
-                    <h3 class="card-title">Status</h3>
-                  </div>
-                  <div class="card-contents">
-                    <dl class="api-status">
-                      <div class="api-data">
-                        <dt class="unit-text">API Connection:</dt>
-                        <dd
-                          id="api-connection"
-                          class="unit-text"
-                        >
-                          Checking...
-                        </dd>
-                      </div>
+                <div
+                  id="iss-telemetry"
+                  class="card-group"
+                >
+                  <article class="card">
+                    <div class="card-header">
+                      <span class="card-icon icon-altitude"></span>
+                      <h3 class="card-title">Altitude</h3>
+                    </div>
+                    <div class="card-contents">
+                      <span
+                        id="iss-altitude"
+                        class="data-text"
+                        >--</span
+                      >
+                      <span class="unit-text">km</span>
+                    </div>
+                  </article>
 
-                      <div class="api-data">
-                        <dt class="unit-text">Last Update:</dt>
-                        <dd
-                          id="last-update"
-                          class="unit-text"
-                        >
-                          --
-                        </dd>
-                      </div>
+                  <article class="card">
+                    <div class="card-header">
+                      <span class="card-icon icon-velocity"></span>
+                      <h3 class="card-title">Velocity</h3>
+                    </div>
+                    <div class="card-contents">
+                      <span
+                        id="iss-velocity"
+                        class="data-text"
+                        >--</span
+                      >
+                      <span class="unit-text">km/h</span>
+                    </div>
+                  </article>
 
-                      <div class="api-data">
-                        <dt class="unit-text">Next Update:</dt>
-                        <dd
-                          id="next-update"
-                          class="unit-text"
-                        >
-                          --
-                        </dd>
-                      </div>
-                    </dl>
-                  </div>
-                </article>
+                  <article class="card">
+                    <div class="card-header">
+                      <span class="card-icon icon-latitude"></span>
+                      <h3 class="card-title">Latitude</h3>
+                    </div>
+                    <div class="card-contents">
+                      <span
+                        id="iss-latitude"
+                        class="data-text"
+                        >--</span
+                      >
+                      <span class="unit-text">°</span>
+                    </div>
+                  </article>
+
+                  <article class="card">
+                    <div class="card-header">
+                      <span class="card-icon icon-longitude"></span>
+                      <h3 class="card-title">Longitude</h3>
+                    </div>
+                    <div class="card-contents">
+                      <span
+                        id="iss-longitude"
+                        class="data-text"
+                        >--</span
+                      >
+                      <span class="unit-text">°</span>
+                    </div>
+                  </article>
+                </div>
               </div>
             </section>
           </div>
