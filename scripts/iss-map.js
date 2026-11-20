@@ -13,7 +13,7 @@ import { globeStyle } from './globe/globe-style.js';
 addProtocol('daylight', daylightProtocol);
 setWorkerUrl(workerUrl);
 
-// Create a Custom Marker
+// Create a Custom Map Marker
 let issMarker;
 
 const updateISSMarker = (map, latitude, longitude) => {
@@ -33,7 +33,7 @@ const updateISSMarker = (map, latitude, longitude) => {
   }
 };
 
-// Create and Initialize the Map
+// Create the Map
 const initializeISSMap = () => {
   const mapContainer = document.getElementById('iss-map');
 
