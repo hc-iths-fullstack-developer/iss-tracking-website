@@ -481,6 +481,18 @@ html {
   width: 28px;
 }
 
+.api-status {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-base);
+}
+
+.api-data {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--spacing-base);
+}
+
 .footer-nav {
   display: grid;
   gap: var(--spacing-base);
