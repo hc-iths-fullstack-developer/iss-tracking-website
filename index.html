@@ -106,80 +106,54 @@
           </p>
 
           <div class="panel-group">
-            <!-- 2. Live Video Feed -->
-            <!-- <section
-          id="live-feed"
-          class="panel"
-          aria-labelledby="live-feed-title"
-        >
-          <h2
-            id="live-feed-title"
-            class="heading section-title"
-          >
-            Live Video Feed
-          </h2>
-
-          <div class="video-wrapper">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/M3HKLzjvKPc"
-              title="Live video from the International Space Station — NASA"
-              allow="
-                accelerometer;
-                autoplay;
-                clipboard-write;
-                encrypted-media;
-                gyroscope;
-                picture-in-picture;
-                web-share;
-              "
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            >
-            </iframe>
-          </div>
-        </section> -->
-
-            <!-- 4. API Status -->
+            <!-- 1. API Status -->
             <article class="card">
               <div class="card-header">
+                <span class="card-icon icon-status"></span>
                 <h3 class="card-title">Status</h3>
               </div>
               <div class="card-contents">
-                <dl class="api-status">
-                  <div class="api-data">
-                    <dt class="unit-text">API Connection:</dt>
-                    <dd
-                      id="api-connection"
-                      class="status-text"
-                    >
-                      Connecting...
-                    </dd>
+                <div class="status-grid">
+                  <div class="label-text">API Connection:</div>
+                  <div
+                    id="api-connection"
+                    class="status-text"
+                  >
+                    Connecting...
                   </div>
-
-                  <div class="api-data">
-                    <dt class="unit-text">Last Update:</dt>
-                    <dd
-                      id="last-update"
-                      class="status-text"
-                    >
-                      --
-                    </dd>
+                  <div>
+                    <button class="card-button">
+                      <span class="button-text">Disconnect</span>
+                    </button>
                   </div>
-
-                  <div class="api-data">
-                    <dt class="unit-text">Next Update:</dt>
-                    <dd
-                      id="next-update"
-                      class="status-text"
-                    >
-                      --
-                    </dd>
+                  <div class="label-text">Last Update:</div>
+                  <div
+                    id="last-update"
+                    class="status-text"
+                  >
+                    --
                   </div>
-                </dl>
+                  <div>
+                    <button class="card-button">
+                      <span class="button-text">Update Now</span>
+                    </button>
+                  </div>
+                  <div class="label-text">Next Update:</div>
+                  <div
+                    id="next-update"
+                    class="status-text"
+                  >
+                    --
+                  </div>
+                  <div>
+                    <button class="card-button">
+                      <span class="button-text">Set Interval</span>
+                    </button>
+                  </div>
+                </div>
               </div>
             </article>
 
-            <!-- 3. ISS Position -->
             <section
               id="iss-position"
               aria-labelledby="iss-position-title"
@@ -192,13 +166,37 @@
                 ISS Position
               </h2>
 
-              <div class="card-group-iss-position">
-                <div
-                  id="iss-map"
-                  class="card map-wrapper"
-                  role="region"
-                  aria-label="Interactive globe showing Earth"
-                ></div>
+              <div class="card-group-position-telemetry">
+                <div class="card-group">
+                  <!-- 3. ISS Position -->
+                  <div
+                    id="iss-map"
+                    class="card map-wrapper"
+                    role="region"
+                    aria-label="Interactive globe showing Earth"
+                  ></div>
+                  <!-- 2. Live Video Feed -->
+                  <div class="card video-wrapper">
+                    <iframe
+                      src="https://www.youtube-nocookie.com/embed/M3HKLzjvKPc"
+                      title="Live video from the International Space Station — NASA"
+                      allow="
+                        accelerometer;
+                        autoplay;
+                        clipboard-write;
+                        encrypted-media;
+                        gyroscope;
+                        picture-in-picture;
+                        web-share;
+                      "
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allowfullscreen
+                    >
+                    </iframe>
+                  </div>
+                </div>
+
+                <!-- 3. ISS Telemetry -->
                 <div
                   id="iss-telemetry"
                   class="card-group"
@@ -214,7 +212,7 @@
                         class="data-text"
                         >--</span
                       >
-                      <span class="unit-text">km</span>
+                      <span class="label-text">km</span>
                     </div>
                   </article>
 
@@ -229,7 +227,7 @@
                         class="data-text"
                         >--</span
                       >
-                      <span class="unit-text">km/h</span>
+                      <span class="label-text">km/h</span>
                     </div>
                   </article>
 
@@ -244,7 +242,7 @@
                         class="data-text"
                         >--</span
                       >
-                      <span class="unit-text">°</span>
+                      <span class="label-text">°</span>
                     </div>
                   </article>
 
@@ -259,7 +257,7 @@
                         class="data-text"
                         >--</span
                       >
-                      <span class="unit-text">°</span>
+                      <span class="label-text">°</span>
                     </div>
                   </article>
                 </div>

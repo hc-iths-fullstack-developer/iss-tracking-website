@@ -34,7 +34,7 @@ const updateISSMarker = (map, latitude, longitude) => {
     // Create a container DOM element for the marker
     // Set the class that contains a custom ISS icon
     const markerElement = document.createElement('div');
-    markerElement.className = 'iss-marker';
+    markerElement.className = 'map-marker icon-iss';
 
     issMarker = new Marker({
       element: markerElement,
