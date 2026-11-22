@@ -114,41 +114,74 @@
               </div>
               <div class="card-contents">
                 <div class="status-grid">
-                  <div class="label-text">API Connection:</div>
-                  <div
-                    id="api-connection"
-                    class="status-text"
-                  >
-                    Connecting...
+                  <div class="grid-cell">
+                    <div class="label-text">API Connection:</div>
                   </div>
-                  <div>
-                    <button class="card-button">
-                      <span class="button-text">Disconnect</span>
+                  <div class="grid-cell">
+                    <div
+                      id="api-connection"
+                      class="status-text"
+                    >
+                      Disconnected
+                    </div>
+                  </div>
+                  <div class="grid-cell">
+                    <button
+                      id="connect-disconnect-toggle"
+                      class="card-button"
+                    >
+                      <span
+                        id="connect-icon-disconnect"
+                        class="button-icon icon-connect"
+                      ></span>
+                      <span
+                        id="connect-disconnect-text"
+                        class="button-text"
+                        >Connect</span
+                      >
                     </button>
                   </div>
-                  <div class="label-text">Last Update:</div>
-                  <div
-                    id="last-update"
-                    class="status-text"
-                  >
-                    --
+                  <div class="grid-cell">
+                    <div class="label-text">Last Update:</div>
                   </div>
-                  <div>
+                  <div class="grid-cell">
+                    <div
+                      id="last-update"
+                      class="status-text"
+                    >
+                      --
+                    </div>
+                  </div>
+                  <div class="grid-cell">
                     <button class="card-button">
+                      <span class="button-icon icon-update"></span>
                       <span class="button-text">Update Now</span>
                     </button>
                   </div>
-                  <div class="label-text">Next Update:</div>
-                  <div
-                    id="next-update"
-                    class="status-text"
-                  >
-                    --
+                  <div class="grid-cell">
+                    <div class="label-text">Next Update:</div>
                   </div>
-                  <div>
-                    <button class="card-button">
+                  <div class="grid-cell">
+                    <div
+                      id="next-update"
+                      class="status-text"
+                    >
+                      --
+                    </div>
+                  </div>
+                  <div class="grid-cell">
+                    <button
+                      id="set-interval-button"
+                      class="card-button"
+                    >
+                      <span class="button-icon icon-interval"></span>
                       <span class="button-text">Set Interval</span>
                     </button>
+                    <input
+                      id="set-interval-field"
+                      class="field set-interval"
+                      type="number"
+                    >
                   </div>
                 </div>
               </div>
@@ -168,7 +201,7 @@
 
               <div class="card-group-position-telemetry">
                 <div class="card-group">
-                  <!-- 3. ISS Position -->
+                  <!-- 2. ISS Position -->
                   <div
                     id="iss-map"
                     class="card map-wrapper"
@@ -178,6 +211,7 @@
                   <!-- 2. Live Video Feed -->
                   <div class="card video-wrapper">
                     <iframe
+                      class="video"
                       src="https://www.youtube-nocookie.com/embed/M3HKLzjvKPc"
                       title="Live video from the International Space Station — NASA"
                       allow="
