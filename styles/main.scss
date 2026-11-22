@@ -656,10 +656,12 @@ html {
     width: var(--font-size-xs);
 
     &.icon-connect {
+      display: block;
       mask-image: url('/images/connect-icon.svg');
     }
 
     &.icon-disconnect {
+      display: none;
       mask-image: url('/images/disconnect-icon.svg');
     }
 
@@ -711,11 +713,15 @@ html {
   letter-spacing: var(--letter-space-2xs);
   line-height: var(--line-height-base);
   outline-offset: calc(var(--border-width-sm) * -1);
-  padding: 10px;
+  padding: var(--spacing-xs);
   width: 100%;
 
   &.set-interval {
     display: none;
+    line-height: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
 
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
