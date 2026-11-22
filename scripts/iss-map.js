@@ -23,7 +23,7 @@ addProtocol('daylight', daylightProtocol);
 setWorkerUrl(workerUrl);
 
 // 2. Initialize a Custom Map Marker
-let issMarker;
+let issMarker = null;
 
 // 3. Position of the ISS icon on the map
 const updateISSMarker = (map, latitude, longitude) => {
@@ -46,7 +46,15 @@ const updateISSMarker = (map, latitude, longitude) => {
   }
 };
 
-// 4. Create the map
+// 4. Remove the ISS marker from the map
+const removeISSMarker = () => {
+  if (issMarker) {
+    issMarker.remove();
+    issMarker = null;
+  }
+};
+
+// 5. Create the map
 const initializeISSMap = () => {
   // Get the container DOM element for the map
   const mapContainer = document.getElementById('iss-map');
@@ -106,4 +114,4 @@ const initializeISSMap = () => {
   return map;
 };
 
-export { initializeISSMap, updateISSMarker };
+export { initializeISSMap, removeISSMarker, updateISSMarker };

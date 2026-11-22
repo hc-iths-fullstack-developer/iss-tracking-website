@@ -1,5 +1,5 @@
 import { getISSData } from './iss-api.js';
-import { initializeISSMap, updateISSMarker } from './iss-map.js';
+import { initializeISSMap, removeISSMarker, updateISSMarker } from './iss-map.js';
 
 // 1. Initialize the map
 const map = initializeISSMap();
@@ -135,6 +135,8 @@ connectDisconnectToggle.addEventListener('click', () => {
     longitudeElement.textContent = '--';
     nextUpdateElement.textContent = '--';
     velocityElement.textContent = '--';
+    // Remove the marker when disconnected
+    removeISSMarker();
   }
 });
 
