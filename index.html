@@ -118,11 +118,18 @@
                     <div class="label-text">API Connection:</div>
                   </div>
                   <div class="grid-cell">
-                    <div
-                      id="api-connection"
-                      class="status-text"
-                    >
-                      Disconnected
+                    <div class="connect-disconnect-wrapper">
+                      <span
+                        id="connection-indicator"
+                        class="connection-indicator indicator-offline"
+                      >
+                      </span>
+                      <div
+                        id="api-connection"
+                        class="status-text"
+                      >
+                        Offline
+                      </div>
                     </div>
                   </div>
                   <div class="grid-cell">
@@ -131,12 +138,8 @@
                       class="card-button"
                     >
                       <span
-                        id="icon-connect"
+                        id="connect-disconnect-icon"
                         class="button-icon icon-connect"
-                      ></span>
-                      <span
-                        id="icon-disconnect"
-                        class="button-icon icon-disconnect"
                       ></span>
                       <span
                         id="connect-disconnect-text"
@@ -156,6 +159,11 @@
                     >
                       --
                     </div>
+                    <div class="dot-loader">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
                   </div>
                   <div class="grid-cell">
                     <button class="card-button">
@@ -173,6 +181,11 @@
                       class="status-text"
                     >
                       --
+                    </div>
+                    <div class="dot-loader">
+                      <span></span>
+                      <span></span>
+                      <span></span>
                     </div>
                     <input
                       id="set-interval-field"
@@ -250,6 +263,11 @@
                         class="data-text"
                         >--</span
                       >
+                      <div class="dot-loader loader-telemetry">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
                       <span class="label-text">km</span>
                     </div>
                   </article>
@@ -264,6 +282,11 @@
                         class="data-text"
                         >--</span
                       >
+                      <div class="dot-loader loader-telemetry">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
                       <span class="label-text">km/h</span>
                     </div>
                   </article>
@@ -278,6 +301,11 @@
                         class="data-text"
                         >--</span
                       >
+                      <div class="dot-loader loader-telemetry">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
                       <span class="label-text">°</span>
                     </div>
                   </article>
@@ -292,6 +320,11 @@
                         class="data-text"
                         >--</span
                       >
+                      <div class="dot-loader loader-telemetry">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
                       <span class="label-text">°</span>
                     </div>
                   </article>

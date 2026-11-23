@@ -9,18 +9,22 @@ import {
 const map = initializeISSMap();
 
 // 2. Get DOM Elements
-const altitudeElement = document.getElementById('iss-altitude');
-const velocityElement = document.getElementById('iss-velocity');
-const latitudeElement = document.getElementById('iss-latitude');
-const longitudeElement = document.getElementById('iss-longitude');
-const apiConnectionElement = document.getElementById('api-connection');
-const lastUpdateElement = document.getElementById('last-update');
-const nextUpdateElement = document.getElementById('next-update');
+const altitudeElement = document.querySelector('#iss-altitude');
+const velocityElement = document.querySelector('#iss-velocity');
+const latitudeElement = document.querySelector('#iss-latitude');
+const longitudeElement = document.querySelector('#iss-longitude');
+const apiConnectionElement = document.querySelector('#api-connection');
+const lastUpdateElement = document.querySelector('#last-update');
+const nextUpdateElement = document.querySelector('#next-update');
+const connectionIndicatorElement = document.querySelector(
+  '#connection-indicator',
+);
+const loadingElements = document.querySelectorAll('.dot-loader');
 
 // 3. Set update interval in milliseconds (5s)
 const updateInterval = 5000;
 
-// 4. Set countdown deadline (current time + 5s in the future)
+// 4. Set shared variables here
 let connected = false;
 let nextUpdateTime = null;
 let updateTimeout = null;
@@ -45,15 +49,17 @@ const updateISSPosition = async () => {
     nextUpdateTime = Date.now() + updateInterval;
     // Try to fetch the API again recursively (in 5s)
     updateTimeout = setTimeout(updateISSPosition, updateInterval);
-    // Set negative connection status
-    apiConnectionElement.textContent = 'No Connection';
+    // Set error connection status
+    apiConnectionElement.textContent = 'Error';
+    connectionIndicatorElement.className =
+      'connection-indicator indicator-error';
     return;
   }
 
   // On success:
   if (data) {
     connected = true;
-    // Update the ISS marker on the map with the API current coordinates
+    // Show and update the ISS marker on the map with the current API coordinates
     updateISSMarker(map, data.latitude, data.longitude);
     // Reset countdown to next update deadline (5s)
     nextUpdateTime = Date.now() + updateInterval;
@@ -67,17 +73,29 @@ const updateISSPosition = async () => {
         nextUpdateElement.textContent = `${Math.max(0, remainingTime)}s`;
       }, 1000);
     }
+    // Call the API again recursively (in 5s)
+    updateTimeout = setTimeout(updateISSPosition, updateInterval);
+    // Hide loaders
+    loadingElements.forEach((element) => {
+      element.style.setProperty('display', 'none');
+    });
+    // Show and set data elements to a readable format
+    altitudeElement.style.setProperty('display', 'block');
+    altitudeElement.textContent = data.altitude.toFixed(2);
+    apiConnectionElement.textContent = 'Live';
+    connectionIndicatorElement.className =
+      'connection-indicator indicator-live';
+    lastUpdateElement.style.setProperty('display', 'block');
+    lastUpdateElement.textContent = new Date().toLocaleTimeString('en-GB');
+    latitudeElement.style.setProperty('display', 'block');
+    latitudeElement.textContent = data.latitude.toFixed(4);
+    longitudeElement.style.setProperty('display', 'block');
+    longitudeElement.textContent = data.longitude.toFixed(4);
+    nextUpdateElement.style.setProperty('display', 'block');
     // Display initial countdown immediately for UI improvement
     // as countDownTimer does not execute for the first 1s
     nextUpdateElement.textContent = `${updateInterval / 1000}s`;
-    // Call the API again recursively (in 5s)
-    updateTimeout = setTimeout(updateISSPosition, updateInterval);
-    // Set data elements to a readable format
-    altitudeElement.textContent = data.altitude.toFixed(2);
-    apiConnectionElement.textContent = 'Connected';
-    lastUpdateElement.textContent = new Date().toLocaleTimeString('en-GB');
-    latitudeElement.textContent = data.latitude.toFixed(4);
-    longitudeElement.textContent = data.longitude.toFixed(4);
+    velocityElement.style.setProperty('display', 'block');
     velocityElement.textContent = data.velocity.toLocaleString('en-GB', {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
@@ -86,29 +104,33 @@ const updateISSPosition = async () => {
 };
 
 // 6. Connection Toggle
-const connectDisconnectToggle = document.getElementById(
-  'connect-disconnect-toggle',
+const connectDisconnectToggle = document.querySelector(
+  '#connect-disconnect-toggle',
 );
 
 connectDisconnectToggle.addEventListener('click', () => {
-  const buttonTextElement = document.getElementById('connect-disconnect-text');
-  const connectIconElement = document.getElementById('icon-connect');
-  const disconnectIconElement = document.getElementById('icon-disconnect');
+  const buttonTextElement = document.querySelector('#connect-disconnect-text');
+  const buttonIconElement = document.querySelector('#connect-disconnect-icon');
 
   if (!connecting) {
     connecting = true;
-    // Set interactive elements to connecting status
+    // Set dynamic elements to connecting status
     buttonTextElement.textContent = 'Disconnect';
-    disconnectIconElement.style.setProperty('display', 'block');
-    connectIconElement.style.setProperty('display', 'none');
-    // Set data elements to loaders
-    altitudeElement.textContent = '...';
-    apiConnectionElement.textContent = 'Connecting...';
-    lastUpdateElement.textContent = '...';
-    latitudeElement.textContent = '...';
-    longitudeElement.textContent = '...';
-    nextUpdateElement.textContent = '...';
-    velocityElement.textContent = '...';
+    buttonIconElement.className = 'button-icon icon-disconnect';
+    // Hide data elements while loading
+    altitudeElement.style.setProperty('display', 'none');
+    apiConnectionElement.textContent = 'Connecting';
+    connectionIndicatorElement.className =
+      'connection-indicator indicator-connecting';
+    lastUpdateElement.style.setProperty('display', 'none');
+    latitudeElement.style.setProperty('display', 'none');
+    longitudeElement.style.setProperty('display', 'none');
+    nextUpdateElement.style.setProperty('display', 'none');
+    velocityElement.style.setProperty('display', 'none');
+    // Show loaders
+    loadingElements.forEach((element) => {
+      element.style.setProperty('display', 'flex');
+    });
     // Initial API request
     updateISSPosition();
 
@@ -127,27 +149,38 @@ connectDisconnectToggle.addEventListener('click', () => {
     updateTimeout = null;
     // Reset countdown display
     nextUpdateTime = null;
-    // Set interactive elements to disconnected status
-    buttonTextElement.textContent = 'Connect';
-    connectIconElement.style.setProperty('display', 'block');
-    disconnectIconElement.style.setProperty('display', 'none');
-    // Set data elements to placeholders
-    altitudeElement.textContent = '--';
-    apiConnectionElement.textContent = 'Disconnected';
-    lastUpdateElement.textContent = '--';
-    latitudeElement.textContent = '--';
-    longitudeElement.textContent = '--';
-    nextUpdateElement.textContent = '--';
-    velocityElement.textContent = '--';
-    // Remove the marker when disconnected
+    // Remove map marker
     removeISSMarker();
+    // Set dynamic elements to disconnected status
+    buttonTextElement.textContent = 'Connect';
+    buttonIconElement.className = 'button-icon icon-connect';
+    connectionIndicatorElement.className =
+      'connection-indicator indicator-offline';
+    // Show and set data elements to placeholders
+    altitudeElement.textContent = '--';
+    altitudeElement.style.setProperty('display', 'block');
+    apiConnectionElement.textContent = 'Offline';
+    lastUpdateElement.textContent = '--';
+    lastUpdateElement.style.setProperty('display', 'block');
+    latitudeElement.textContent = '--';
+    latitudeElement.style.setProperty('display', 'block');
+    longitudeElement.textContent = '--';
+    longitudeElement.style.setProperty('display', 'block');
+    nextUpdateElement.textContent = '--';
+    nextUpdateElement.style.setProperty('display', 'block');
+    velocityElement.textContent = '--';
+    velocityElement.style.setProperty('display', 'block');
+    // Hide loaders
+    loadingElements.forEach((element) => {
+      element.style.setProperty('display', 'none');
+    });
   }
 });
 
 // 7. Set Interval Button
 let fieldVisibility = false;
-const setIntervalButton = document.getElementById('set-interval-button');
-const setIntervalFieldElement = document.getElementById('set-interval-field');
+const setIntervalButton = document.querySelector('#set-interval-button');
+const setIntervalFieldElement = document.querySelector('#set-interval-field');
 
 setIntervalButton.addEventListener('click', () => {
   if (!fieldVisibility) {
