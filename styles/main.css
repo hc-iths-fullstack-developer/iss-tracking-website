@@ -66,6 +66,7 @@
   --aside-width-sm: 100%;
   --aside-width-md: 12.5rem;
   --aside-width-lg: 25rem;
+  --input-height: 46px;
   --card-image-height: 12.875rem;
   --card-image-max-width: 12.875rem;
   --card-max-width: 25rem;
@@ -494,6 +495,7 @@ html {
   display: flex;
   flex-direction: row;
   gap: var(--spacing-base);
+  height: var(--input-height);
   line-height: var(--line-height-base);
   outline-offset: calc(var(--border-width-sm) * -1);
   padding: var(--spacing-xs) var(--spacing-base);
@@ -578,6 +580,7 @@ html {
   font-family: "Saira Condensed", sans-serif;
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-button);
+  height: var(--input-height);
   letter-spacing: var(--letter-space-2xs);
   line-height: var(--line-height-base);
   outline-offset: calc(var(--border-width-sm) * -1);
@@ -585,27 +588,23 @@ html {
   width: 100%;
 }
 
-.field.set-interval {
-  display: none;
-  line-height: inherit;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
+.field[type="number"] {
+  appearance: textfield; /* Firefox */
 }
 
-.field.set-interval::-webkit-outer-spin-button, .field.set-interval::-webkit-inner-spin-button {
+.field::-webkit-outer-spin-button, .field::-webkit-inner-spin-button {
   /* display: none; <- Crashes Chrome on hover */
   appearance: none;
   margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
-.field.set-interval[type="number"] {
-  appearance: textfield; /* Firefox */
-}
-
 .field:focus-visible {
   outline: var(--border-width-sm) solid var(--color-focus, var(--color-accent));
   border-radius: var(--border-radius-base);
+}
+
+#set-interval-field {
+  display: none;
 }
 
 .footer-nav {
