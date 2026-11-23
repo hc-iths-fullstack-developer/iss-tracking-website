@@ -230,7 +230,7 @@ $p5-letter-space-6: -0.0243em;
 // ========================================
 @mixin keyboard-focus {
   outline: var(--border-width-sm) solid var(--color-focus, var(--color-accent));
-  border-radius: var(--border-radius-base);
+  border-radius: var(--border-radius-sm);
 }
 
 // ========================================

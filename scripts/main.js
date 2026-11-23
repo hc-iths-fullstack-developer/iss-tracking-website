@@ -144,7 +144,7 @@ connectDisconnectToggle.addEventListener('click', () => {
   }
 });
 
-// 6. Set Interval Button
+// 7. Set Interval Button
 let fieldVisibility = false;
 const setIntervalButton = document.getElementById('set-interval-button');
 const setIntervalFieldElement = document.getElementById('set-interval-field');
@@ -152,9 +152,11 @@ const setIntervalFieldElement = document.getElementById('set-interval-field');
 setIntervalButton.addEventListener('click', () => {
   if (!fieldVisibility) {
     fieldVisibility = true;
+    // Show field, hide data element
     setIntervalFieldElement.style.setProperty('display', 'block');
     nextUpdateElement.style.setProperty('display', 'none');
   } else {
+    // Hide field, show data element
     fieldVisibility = false;
     setIntervalFieldElement.style.setProperty('display', 'none');
     nextUpdateElement.style.setProperty('display', 'block');

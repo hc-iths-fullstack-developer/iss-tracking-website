@@ -154,7 +154,7 @@ html {
 
 .link:focus-visible {
   outline: var(--border-width-sm) solid var(--color-focus, var(--color-accent));
-  border-radius: var(--border-radius-base);
+  border-radius: var(--border-radius-sm);
   outline-offset: calc(var(--border-width-sm) * -1);
 }
 
@@ -573,7 +573,7 @@ html {
 
 .card-button:focus-visible {
   outline: var(--border-width-sm) solid var(--color-focus, var(--color-accent));
-  border-radius: var(--border-radius-base);
+  border-radius: var(--border-radius-sm);
 }
 
 .card-button:focus-visible .button-text {
@@ -605,7 +605,7 @@ html {
 
 .field:focus-visible {
   outline: var(--border-width-sm) solid var(--color-focus, var(--color-accent));
-  border-radius: var(--border-radius-base);
+  border-radius: var(--border-radius-sm);
 }
 
 #set-interval-field {
@@ -697,7 +697,7 @@ html {
 
 .header-nav-group .header-nav-item .header-nav-link:focus-visible {
   outline: var(--border-width-sm) solid var(--color-focus, var(--color-accent));
-  border-radius: var(--border-radius-base);
+  border-radius: var(--border-radius-sm);
   outline-offset: calc(var(--border-width-sm) * -1);
 }
 
