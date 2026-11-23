@@ -104,9 +104,8 @@
           <p class="paragraph">
             Live tracking and orbital data from the International Space Station.
           </p>
-
           <div class="panel-group">
-            <!-- 1. API Status -->
+            <!-- API Status -->
             <article class="card">
               <div class="card-header">
                 <span class="card-icon icon-status"></span>
@@ -114,6 +113,7 @@
               </div>
               <div class="card-contents">
                 <div class="status-grid">
+                  <!-- col 1 -->
                   <div class="grid-cell">
                     <div class="label-text">API Connection:</div>
                   </div>
@@ -145,6 +145,7 @@
                       >
                     </button>
                   </div>
+                  <!-- col 2 -->
                   <div class="grid-cell">
                     <div class="label-text">Last Update:</div>
                   </div>
@@ -162,6 +163,7 @@
                       <span class="button-text">Update Now</span>
                     </button>
                   </div>
+                  <!-- col 3 -->
                   <div class="grid-cell">
                     <div class="label-text">Next Update:</div>
                   </div>
@@ -174,10 +176,8 @@
                     </div>
                     <input
                       id="set-interval-field"
-                      class="field set-interval"
-                      type="number"
-                      min="0"
-                      step="1"
+                      class="field"
+                      type="text"
                     >
                   </div>
                   <div class="grid-cell">
@@ -192,7 +192,7 @@
                 </div>
               </div>
             </article>
-
+            <!-- ISS Position -->
             <section
               id="iss-position"
               aria-labelledby="iss-position-title"
@@ -204,17 +204,16 @@
               >
                 ISS Position
               </h2>
-
               <div class="card-group-position-telemetry">
                 <div class="card-group">
-                  <!-- 2. ISS Position -->
+                  <!-- ISS on the map -->
                   <div
                     id="iss-map"
                     class="card map-wrapper"
                     role="region"
                     aria-label="Interactive globe showing Earth"
                   ></div>
-                  <!-- 2. Live Video Feed -->
+                  <!-- Live video feed -->
                   <div class="card video-wrapper">
                     <iframe
                       class="video"
@@ -235,8 +234,7 @@
                     </iframe>
                   </div>
                 </div>
-
-                <!-- 3. ISS Telemetry -->
+                <!-- ISS Telemetry -->
                 <div
                   id="iss-telemetry"
                   class="card-group"
@@ -255,7 +253,6 @@
                       <span class="label-text">km</span>
                     </div>
                   </article>
-
                   <article class="card">
                     <div class="card-header">
                       <span class="card-icon icon-velocity"></span>
@@ -270,7 +267,6 @@
                       <span class="label-text">km/h</span>
                     </div>
                   </article>
-
                   <article class="card">
                     <div class="card-header">
                       <span class="card-icon icon-latitude"></span>
@@ -285,7 +281,6 @@
                       <span class="label-text">°</span>
                     </div>
                   </article>
-
                   <article class="card">
                     <div class="card-header">
                       <span class="card-icon icon-longitude"></span>
