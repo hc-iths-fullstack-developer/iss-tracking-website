@@ -588,16 +588,6 @@ html {
   width: 100%;
 }
 
-.field[type="number"] {
-  appearance: textfield; /* Firefox */
-}
-
-.field::-webkit-outer-spin-button, .field::-webkit-inner-spin-button {
-  /* display: none; <- Crashes Chrome on hover */
-  appearance: none;
-  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-}
-
 .field:focus-visible {
   outline: var(--border-width-sm) solid var(--color-focus, var(--color-accent));
   border-radius: var(--border-radius-base);

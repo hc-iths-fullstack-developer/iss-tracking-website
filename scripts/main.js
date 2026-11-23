@@ -147,9 +147,9 @@ connectDisconnectToggle.addEventListener('click', () => {
 // 6. Set Interval Button
 let fieldVisibility = false;
 const setIntervalButton = document.getElementById('set-interval-button');
+const setIntervalFieldElement = document.getElementById('set-interval-field');
 
 setIntervalButton.addEventListener('click', () => {
-  const setIntervalFieldElement = document.getElementById('set-interval-field');
   if (!fieldVisibility) {
     fieldVisibility = true;
     setIntervalFieldElement.style.setProperty('display', 'block');
@@ -159,4 +159,12 @@ setIntervalButton.addEventListener('click', () => {
     setIntervalFieldElement.style.setProperty('display', 'none');
     nextUpdateElement.style.setProperty('display', 'block');
   }
+});
+
+// 7. Only allow Numbers in the input field
+setIntervalFieldElement.addEventListener('input', () => {
+  setIntervalFieldElement.value = setIntervalFieldElement.value.replace(
+    /[^0-9]/g,
+    '',
+  );
 });
