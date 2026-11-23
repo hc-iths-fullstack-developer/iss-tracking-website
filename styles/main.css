@@ -488,7 +488,7 @@ html {
   align-self: flex-end;
   background-color: var(--color-card);
   border-color: var(--color-card-hover);
-  border-radius: var(--border-radius-base);
+  border-radius: var(--border-radius-sm);
   border-style: solid;
   border-width: var(--border-width-base);
   cursor: pointer;
@@ -573,7 +573,7 @@ html {
   appearance: none;
   background-color: var(--color-card-hover);
   border-color: var(--color-card-hover);
-  border-radius: var(--border-radius-base);
+  border-radius: var(--border-radius-sm);
   border-style: solid;
   border-width: var(--border-width-base);
   color: var(--color-text);
