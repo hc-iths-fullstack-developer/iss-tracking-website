@@ -1,5 +1,9 @@
 import { getISSData } from './iss-api.js';
-import { initializeISSMap, removeISSMarker, updateISSMarker } from './iss-map.js';
+import {
+  initializeISSMap,
+  removeISSMarker,
+  updateISSMarker,
+} from './iss-map.js';
 
 // 1. Initialize the map
 const map = initializeISSMap();
@@ -149,8 +153,10 @@ setIntervalButton.addEventListener('click', () => {
   if (!fieldVisibility) {
     fieldVisibility = true;
     setIntervalFieldElement.style.setProperty('display', 'block');
+    nextUpdateElement.style.setProperty('display', 'none');
   } else {
     fieldVisibility = false;
     setIntervalFieldElement.style.setProperty('display', 'none');
+    nextUpdateElement.style.setProperty('display', 'block');
   }
 });

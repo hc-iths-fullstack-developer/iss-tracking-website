@@ -467,6 +467,7 @@ html {
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
+  position: relative;
   width: var(--font-size-sm);
 }
 
@@ -573,6 +574,7 @@ html {
   border-radius: var(--border-radius-base);
   border-style: solid;
   border-width: var(--border-width-base);
+  color: var(--color-text);
   font-family: "Saira Condensed", sans-serif;
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-button);
