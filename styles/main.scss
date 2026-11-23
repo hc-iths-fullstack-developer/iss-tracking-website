@@ -295,6 +295,12 @@ html {
   line-height: var(--line-height-base);
   margin-block: var(--spacing-base) var(--spacing-base);
   max-width: var(--text-max-width);
+
+  &.paragraph-footer {
+    display: inline;
+    font-size: var(--font-size-base);
+    margin-block: unset;
+  }
 }
 
 .page-title {
@@ -501,6 +507,17 @@ html {
 
   &.icon-velocity {
     mask-image: url('/images/velocity-icon.svg');
+  }
+}
+
+// List
+
+.footer-list {
+  color: var(--color-text-subtle);
+  list-style: square inside;
+
+  .footer-list-item {
+    display: list-item;
   }
 }
 
@@ -748,6 +765,8 @@ html {
 
   .footer-nav-item {
     display: flex;
+    flex-direction: column;
+    //margin-block-start: var(--spacing-base);
 
     .link {
       line-height: var(--line-height-base);

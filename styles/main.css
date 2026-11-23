@@ -174,6 +174,12 @@ html {
   max-width: var(--text-max-width);
 }
 
+.paragraph.paragraph-footer {
+  display: inline;
+  font-size: var(--font-size-base);
+  margin-block: unset;
+}
+
 .page-title {
   color: var(--color-text);
   font-family: "Offside", sans-serif;
@@ -375,6 +381,15 @@ html {
 
 .card-icon.icon-velocity {
   mask-image: url("/images/velocity-icon.svg");
+}
+
+.footer-list {
+  color: var(--color-text-subtle);
+  list-style: square inside;
+}
+
+.footer-list .footer-list-item {
+  display: list-item;
 }
 
 .section {
@@ -611,6 +626,7 @@ html {
 
 .footer-nav-group .footer-nav-item {
   display: flex;
+  flex-direction: column;
 }
 
 .footer-nav-group .footer-nav-item .link {
