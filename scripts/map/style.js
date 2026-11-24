@@ -19,7 +19,7 @@ const daylightTiles = (kind, date) => [
   `daylight://${kind}/{z}/{x}/{y}?time=${date.getTime()}`,
 ];
 
-const globeStyle = (date, center) => {
+const mapStyle = (date, center) => {
   const sun = subsolarPoint(date);
   const sources = {
     // Mapterhorn: open elevation tiles, 30 m worldwide and down to 1 m where countries publish lidar.
@@ -121,4 +121,4 @@ const globeStyle = (date, center) => {
   };
 };
 
-export { globeStyle };
+export { mapStyle };

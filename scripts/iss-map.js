@@ -12,8 +12,8 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 // workerUrl: lets Vite bundle the worker correctly.
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 // https://makewithmaplibre.com/globe/
-import { daylightProtocol } from './globe/protocols.js';
-import { globeStyle } from './globe/globe-style.js';
+import { daylightProtocol } from './map/protocols.js';
+import { mapStyle } from './map/style.js';
 
 // 1. Registration of necessary functions from the MapLibre Library
 // https://maplibre.org/maplibre-gl-js/docs/API/functions/addProtocol/
@@ -69,13 +69,13 @@ const initializeISSMap = () => {
   // attributionControl: Show attribution for sources
   // center: Set the map's geographical location facing the viewer to 0 = longitude (the Prime Meridian) and 20 = latitude (20 degrees north).
   // container: Provide the DOM element container for the map
-  // style: Give the globeStyle function the initial geographical coordinates
+  // style: Give the mapStyle function the initial geographical coordinates
   // zoom: Set the size of the globe on the page
   const map = new MapLibreMap({
     attributionControl: true,
     center: [0, 20],
     container: mapContainer,
-    style: globeStyle(new Date(), [0, 20]),
+    style: mapStyle(new Date(), [0, 20]),
     zoom: 2,
   });
 
@@ -110,6 +110,9 @@ const initializeISSMap = () => {
   // Adds a listener to continue spinning after each movement
   // https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#on
   map.on('moveend', spinGlobe);
+
+  map.dragPan.enable();
+  map.dragRotate.disable();
 
   return map;
 };
