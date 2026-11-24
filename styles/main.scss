@@ -617,6 +617,71 @@ html {
 // Elements
 // ========================================
 
+.connection-indicator {
+  position: relative;
+  width: var(--indicator-width);
+  height: var(--indicator-height);
+  border-radius: 50%;
+
+  &.indicator-live {
+    background-color: var(--color-status-success);
+  }
+
+  &.indicator-connecting {
+    background-color: var(--color-status-warning);
+  }
+
+  &.indicator-offline {
+    background-color: var(--color-status-neutral);
+  }
+
+  &.indicator-error {
+    background-color: var(--color-status-error);
+  }
+}
+
+.dot-loader {
+  align-items: center;
+  display: none;
+  gap: var(--spacing-xs);
+  justify-content: center;
+
+  &.loader-telemetry {
+    height: calc(var(--line-height-md) * var(--font-size-xl));
+  }
+
+  span {
+    animation: fade 1s linear infinite;
+    background-color: var(--color-text);
+    border-radius: 50%;
+    height: var(--indicator-height);
+    width: var(--indicator-width);
+
+    &:nth-child(2) {
+      animation-delay: -0.33s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: -0.66s;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      animation-duration: 3s;
+    }
+  }
+
+  @keyframes fade {
+    0%,
+    100% {
+      opacity: 0.2;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+}
+
 .logo {
   background-color: var(--color-accent);
   height: 28px;
@@ -677,35 +742,6 @@ html {
   }
 }
 
-.video {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.connection-indicator {
-  position: relative;
-  width: var(--indicator-width);
-  height: var(--indicator-height);
-  border-radius: 50%;
-
-  &.indicator-live {
-    background-color: var(--color-status-success);
-  }
-
-  &.indicator-connecting {
-    background-color: var(--color-status-warning);
-  }
-
-  &.indicator-offline {
-    background-color: var(--color-status-neutral);
-  }
-
-  &.indicator-error {
-    background-color: var(--color-status-error);
-  }
-}
-
 .pulse-loader {
   background: var(--color-accent);
   border-radius: 50%;
@@ -751,46 +787,10 @@ html {
   }
 }
 
-.dot-loader {
-  align-items: center;
-  display: none;
-  gap: var(--spacing-xs);
-  justify-content: center;
-
-  &.loader-telemetry {
-    height: calc(var(--line-height-md) * var(--font-size-xl));
-  }
-
-  span {
-    animation: fade 1s linear infinite;
-    background-color: var(--color-text);
-    border-radius: 50%;
-    height: var(--indicator-height);
-    width: var(--indicator-width);
-
-    &:nth-child(2) {
-      animation-delay: -0.33s;
-    }
-
-    &:nth-child(3) {
-      animation-delay: -0.66s;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      animation-duration: 3s;
-    }
-  }
-
-  @keyframes fade {
-    0%,
-    100% {
-      opacity: 0.2;
-    }
-
-    50% {
-      opacity: 1;
-    }
-  }
+.video {
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 // Form Elements
