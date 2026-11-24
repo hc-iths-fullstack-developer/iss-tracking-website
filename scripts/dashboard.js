@@ -1,4 +1,6 @@
 // This module receives and displays data on the dashboard
+// It shows, hides and updates elements that display data
+// As well as loading elements, status elements and placeholders
 
 // Get DOM Elements
 const altitudeElement = document.querySelector('#iss-altitude');
@@ -13,7 +15,7 @@ const connectionIndicatorElement = document.querySelector(
 );
 const loadingElements = document.querySelectorAll('.dot-loader');
 
-// Reset dashboard data
+// Reset dashboard data to placeholders
 const resetDashboard = () => {
   altitudeElement.textContent = '--';
   velocityElement.textContent = '--';
@@ -23,7 +25,7 @@ const resetDashboard = () => {
   nextUpdateElement.textContent = '--';
 };
 
-// Show or hide loading indicators
+// Show or hide loaders
 const toggleLoaders = (visible) => {
   loadingElements.forEach((element) => {
     element.style.setProperty('display', visible ? 'flex' : 'none');
@@ -53,7 +55,7 @@ const toggleTelemetry = (visible) => {
   });
 };
 
-// Update connection status
+// Update connection status elements
 const updateConnectionStatus = (status) => {
   const statuses = {
     connecting: {
@@ -73,9 +75,7 @@ const updateConnectionStatus = (status) => {
       className: 'indicator-error',
     },
   };
-
   const currentStatus = statuses[status];
-
   apiConnectionElement.textContent = currentStatus.text;
   connectionIndicatorElement.className = `connection-indicator ${currentStatus.className}`;
 };
@@ -85,7 +85,7 @@ const updateCountdown = (seconds) => {
   nextUpdateElement.textContent = `${seconds}s`;
 };
 
-// Update ISS telemetry function
+// Update ISS telemetry with data
 const updateDashboard = (data) => {
   altitudeElement.textContent = data.altitude.toFixed(2);
   latitudeElement.textContent = data.latitude.toFixed(4);

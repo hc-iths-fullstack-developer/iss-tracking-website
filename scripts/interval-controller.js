@@ -1,4 +1,6 @@
 // This module handles interval controls on the dashboard
+// It shows/hides the interval field
+// It updates the interval that refreshes the API
 
 const initializeIntervalController = (updateISSInterval) => {
   // Get DOM Elements
@@ -12,6 +14,7 @@ const initializeIntervalController = (updateISSInterval) => {
   // Apply selected interval
   const applyInterval = () => {
     const seconds = Number(setIntervalFieldElement.value);
+
     if (!Number.isInteger(seconds) || seconds < 1 || seconds > 60) {
       setIntervalFieldElement.setCustomValidity(
         'Please enter a whole number between 1 and 60 seconds.',
@@ -39,9 +42,11 @@ const initializeIntervalController = (updateISSInterval) => {
     }
   };
 
-  // Interval button
+  // Interval button toggle
   setIntervalButton.addEventListener('click', toggleIntervalField);
-  // Input validation
+
+  // Input validation for the interval field
+  // Allow only numbers 0-9 since we cannot disable typing of letters in the html element
   setIntervalFieldElement.addEventListener('input', () => {
     setIntervalFieldElement.value = setIntervalFieldElement.value.replace(
       /[^0-9]/g,

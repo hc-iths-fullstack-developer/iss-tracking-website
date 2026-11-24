@@ -1,3 +1,6 @@
+// This module is responsible for coordinating map functionality, initialization,
+// markers, trajectory and map interactions.
+
 // https://maplibre.org/maplibre-gl-js/docs/API/type-aliases/MapOptions/
 // https://maplibre.org/maplibre-gl-js/docs/
 // Renamed the import to avoid confusion with JavaScript's built-in Map
