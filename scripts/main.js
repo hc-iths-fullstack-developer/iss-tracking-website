@@ -5,10 +5,10 @@ import {
   updateISSMarker,
 } from './iss-map.js';
 
-// 1. Initialize the map
+// Initialize the map
 const map = initializeISSMap();
 
-// 2. Get DOM Elements
+// Get DOM Elements
 const altitudeElement = document.querySelector('#iss-altitude');
 const velocityElement = document.querySelector('#iss-velocity');
 const latitudeElement = document.querySelector('#iss-latitude');
@@ -21,17 +21,15 @@ const connectionIndicatorElement = document.querySelector(
 );
 const loadingElements = document.querySelectorAll('.dot-loader');
 
-// 3. Set update interval in milliseconds (5s)
-const updateInterval = 5000;
-
-// 4. Set shared variables here
+// Set shared variables here
 let connected = false;
-let nextUpdateTime = null;
-let updateTimeout = null;
 let connecting = false;
 let countdownTimer = null;
+let nextUpdateTime = null;
+let updateInterval = 5000;
+let updateTimeout = null;
 
-// 5. Fetch and display the ISS data
+// Fetch and display the ISS data
 const updateISSPosition = async () => {
   // Get data from a Promise
   const data = await getISSData();
@@ -103,7 +101,7 @@ const updateISSPosition = async () => {
   }
 };
 
-// 6. Connection Toggle
+// Connection Toggle
 const connectDisconnectToggle = document.querySelector(
   '#connect-disconnect-toggle',
 );
@@ -177,18 +175,41 @@ connectDisconnectToggle.addEventListener('click', () => {
   }
 });
 
-// 7. Set Interval Button
+// Interval Button
 let fieldVisibility = false;
 const setIntervalButton = document.querySelector('#set-interval-button');
 const setIntervalFieldElement = document.querySelector('#set-interval-field');
 
+const applyInterval = () => {
+  const seconds = Number(setIntervalFieldElement.value);
+
+  if (!Number.isInteger(seconds) || seconds < 1 || seconds > 60) {
+    setIntervalFieldElement.setCustomValidity(
+      'Please enter a whole number between 1 and 60 seconds.',
+    );
+    setIntervalFieldElement.reportValidity();
+    return false;
+  }
+
+  setIntervalFieldElement.setCustomValidity('');
+  updateISSInterval(seconds);
+
+  return true;
+};
+
+
 setIntervalButton.addEventListener('click', () => {
   if (!fieldVisibility) {
     fieldVisibility = true;
+
     // Show field, hide data element
     setIntervalFieldElement.style.setProperty('display', 'block');
     nextUpdateElement.style.setProperty('display', 'none');
+
+    setIntervalFieldElement.focus();
   } else {
+    if (!applyInterval()) return;
+
     // Hide field, show data element
     fieldVisibility = false;
     setIntervalFieldElement.style.setProperty('display', 'none');
@@ -196,10 +217,53 @@ setIntervalButton.addEventListener('click', () => {
   }
 });
 
-// 7. Only allow Numbers in the input field
+// Interval Input Field
 setIntervalFieldElement.addEventListener('input', () => {
   setIntervalFieldElement.value = setIntervalFieldElement.value.replace(
     /[^0-9]/g,
     '',
   );
+});
+
+const updateISSInterval = (seconds) => {
+  updateInterval = seconds * 1000;
+
+  if (connecting) {
+    clearTimeout(updateTimeout);
+
+    nextUpdateTime = Date.now() + updateInterval;
+
+    updateTimeout = setTimeout(updateISSPosition, updateInterval);
+  }
+};
+
+// Apply Interval on Enter
+setIntervalFieldElement.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+
+    if (!applyInterval()) return;
+
+    fieldVisibility = false;
+    setIntervalFieldElement.style.setProperty('display', 'none');
+    nextUpdateElement.style.setProperty('display', 'block');
+  }
+});
+
+setIntervalFieldElement.addEventListener('change', () => {
+  const seconds = Number(setIntervalFieldElement.value);
+
+  if (seconds >= 1 && seconds <= 60) {
+    updateISSInterval(seconds);
+
+    // Hide field, show data element
+    fieldVisibility = false;
+    setIntervalFieldElement.style.setProperty('display', 'none');
+    nextUpdateElement.style.setProperty('display', 'block');
+  } else {
+    setIntervalFieldElement.setCustomValidity(
+      'Please enter a value between 1 and 60 seconds.',
+    );
+    setIntervalFieldElement.reportValidity();
+  }
 });
