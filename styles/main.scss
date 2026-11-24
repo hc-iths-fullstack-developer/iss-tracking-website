@@ -1,10 +1,11 @@
 // ========================================
 // OPTIONS
 // ========================================
-$breakpoint-xs: 22.5rem; // 360px
+$breakpoint-xs: 20rem; // 320px
 $breakpoint-sm: 40rem; // 640 px
 $breakpoint-md: 80rem; // 1280 px
-$breakpoint-lg: 100rem; // 1600 px
+$breakpoint-lg: 105rem; // 1680 px
+$breakpoint-xl: 120rem; // 1920 px
 
 // Perfect Fourth
 
@@ -151,6 +152,7 @@ $p5-letter-space-6: -0.0243em;
   --margin-width-sm: 3.125rem;
   --margin-width-md: 6.25rem;
   --margin-width-lg: 12.5rem;
+  --margin-width-xl: 25rem;
 
   --card-image-height: 12.875rem;
   --card-image-max-width: 12.875rem;
@@ -574,6 +576,10 @@ html {
   @media (width >= $breakpoint-lg) {
     margin-inline: var(--margin-width-lg);
   }
+
+  @media (width >= $breakpoint-xl) {
+    margin-inline: var(--margin-width-xl);
+  }
 }
 
 .connect-disconnect-wrapper {
@@ -593,6 +599,8 @@ html {
 
 .map-wrapper {
   aspect-ratio: 16 / 9;
+  max-height: 40rem;
+  min-height: 40rem;
   width: 100%;
 }
 

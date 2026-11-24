@@ -71,6 +71,7 @@
   --margin-width-sm: 3.125rem;
   --margin-width-md: 6.25rem;
   --margin-width-lg: 12.5rem;
+  --margin-width-xl: 25rem;
   --card-image-height: 12.875rem;
   --card-image-max-width: 12.875rem;
   --card-max-width: 25rem;
@@ -89,9 +90,9 @@
   --spacing-xs: 0.625em;
   --spacing-base: 1rem;
   --spacing-sm: 2.25rem;
-  --viewport-width-sm: 22.5rem;
+  --viewport-width-sm: 20rem;
   --viewport-width-md: 80rem;
-  --viewport-width-lg: 100rem;
+  --viewport-width-lg: 105rem;
   --hover-background-color-effect: background-color 0.3s ease;
   --hover-border-color-effect: border-color 0.3s ease;
   --hover-color-effect: color 0.3s ease;
@@ -437,9 +438,15 @@ html {
   }
 }
 
-@media (width >= 100rem) {
+@media (width >= 105rem) {
   .container {
     margin-inline: var(--margin-width-lg);
+  }
+}
+
+@media (width >= 120rem) {
+  .container {
+    margin-inline: var(--margin-width-xl);
   }
 }
 
@@ -460,6 +467,8 @@ html {
 
 .map-wrapper {
   aspect-ratio: 16/9;
+  max-height: 40rem;
+  min-height: 40rem;
   width: 100%;
 }
 
