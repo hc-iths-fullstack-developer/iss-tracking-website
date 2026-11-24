@@ -618,10 +618,11 @@ html {
 // ========================================
 
 .connection-indicator {
+  border-radius: 50%;
+  height: var(--indicator-height);
   position: relative;
   width: var(--indicator-width);
-  height: var(--indicator-height);
-  border-radius: 50%;
+
 
   &.indicator-live {
     background-color: var(--color-status-success);
@@ -642,7 +643,7 @@ html {
 
 .dot-loader {
   align-items: center;
-  display: none;
+  display: flex;
   gap: var(--spacing-xs);
   justify-content: center;
 
@@ -904,6 +905,14 @@ html {
 }
 
 #set-interval-field {
+  display: none;
+}
+
+// ========================================
+// Functional
+// ========================================
+
+.hidden {
   display: none;
 }
 

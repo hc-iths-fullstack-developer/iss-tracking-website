@@ -28,7 +28,7 @@ const resetDashboard = () => {
 // Show or hide loaders
 const toggleLoaders = (visible) => {
   loadingElements.forEach((element) => {
-    element.style.setProperty('display', visible ? 'flex' : 'none');
+    element.classList.toggle('hidden', !visible);
   });
 };
 
@@ -37,7 +37,7 @@ const toggleStatusElements = (visible) => {
   const elements = [lastUpdateElement, nextUpdateElement];
 
   elements.forEach((element) => {
-    element.style.setProperty('display', visible ? 'block' : 'none');
+    element.classList.toggle('hidden', !visible);
   });
 };
 
@@ -51,7 +51,7 @@ const toggleTelemetry = (visible) => {
   ];
 
   elements.forEach((element) => {
-    element.style.setProperty('display', visible ? 'block' : 'none');
+    element.classList.toggle('hidden', !visible);
   });
 };
 
