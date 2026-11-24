@@ -147,9 +147,10 @@ $p5-letter-space-6: -0.0243em;
   --color-wrapper: #0a0a0ad7;
 
   // Sizes
-  --aside-width-sm: 100%;
-  --aside-width-md: 12.5rem;
-  --aside-width-lg: 25rem;
+  --margin-width-base: 0rem;
+  --margin-width-sm: 3.125rem;
+  --margin-width-md: 6.25rem;
+  --margin-width-lg: 12.5rem;
 
   --card-image-height: 12.875rem;
   --card-image-max-width: 12.875rem;
@@ -563,14 +564,15 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: start;
+  margin-inline: var(--margin-width-base);
   padding-inline: var(--spacing-base);
 
   @media (width >= $breakpoint-md) {
-    margin-inline: var(--aside-width-md);
+    margin-inline: var(--margin-width-md);
   }
 
   @media (width >= $breakpoint-lg) {
-    margin-inline: var(--aside-width-lg);
+    margin-inline: var(--margin-width-lg);
   }
 }
 
@@ -622,7 +624,6 @@ html {
   height: var(--indicator-height);
   position: relative;
   width: var(--indicator-width);
-
 
   &.indicator-live {
     background-color: var(--color-status-success);
