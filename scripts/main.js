@@ -1,4 +1,4 @@
-import { initializeISSMap } from './iss-map.js';
+import { initializeISSMap } from './map-controller.js';
 import { initializeISSController, updateISSInterval } from './iss-controller';
 import { initializeIntervalController } from './interval-controller.js';
 

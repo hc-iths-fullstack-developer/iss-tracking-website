@@ -1,7 +1,7 @@
 // This module is the central controller.
-// It will coordinate the API connection, map initialization and dashboard integration.
+// It coordinates the API connection, map initialization and dashboard integration.
 import { getISSData } from './iss-api.js';
-import { removeISSMarker, updateISSMarker } from './iss-map.js';
+import { removeISSMarker, updateISSMarker } from './map-controller.js';
 import {
   updateDashboard,
   updateConnectionStatus,
@@ -131,6 +131,7 @@ const toggleConnection = () => {
 
 // Change update interval
 const updateISSInterval = (seconds) => {
+  // Convert to ms
   updateInterval = seconds * 1000;
   if (connecting) {
     // Reset timeout
@@ -151,9 +152,6 @@ const initializeISSController = (mapInstance) => {
     '#connect-disconnect-toggle',
   );
   connectDisconnectToggle.addEventListener('click', toggleConnection);
-  return {
-    updateISSInterval,
-  };
 };
 
 export { initializeISSController, updateISSInterval };
