@@ -1,3 +1,5 @@
+// This module is the central controller.
+// It will coordinate the API connection, map initialization and dashboard integration.
 import { getISSData } from './iss-api.js';
 import { removeISSMarker, updateISSMarker } from './iss-map.js';
 import {
