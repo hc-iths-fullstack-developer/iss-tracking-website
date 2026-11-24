@@ -1,4 +1,5 @@
-// This module handles interval controls
+// This module handles interval controls on the dashboard
+
 const initializeIntervalController = (updateISSInterval) => {
   // Get DOM Elements
   const setIntervalButton = document.querySelector('#set-interval-button');
