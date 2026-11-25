@@ -8,6 +8,7 @@
     "build": "npm run build:css && vite build"
   },
   "dependencies": {
-    "maplibre-gl": "^6.19.0"
+    "maplibre-gl": "^6.19.0",
+    "maplibre-theme": "^1.0.0"
   }
 }

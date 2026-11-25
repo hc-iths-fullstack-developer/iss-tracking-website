@@ -171,8 +171,9 @@ $p5-letter-space-6: -0.0243em;
   --input-height: 2.875em;
 
   // Borders
-  --border-radius-base: 0;
-  --border-radius-sm: 10px;
+  --border-radius-base: 1px;
+  --border-radius-sm: 5px;
+
   --border-width-base: 1px;
   --border-width-sm: 2px;
 
@@ -286,7 +287,7 @@ html {
 
   &:focus-visible {
     @include keyboard-focus;
-    outline-offset: calc(var(--border-width-sm) * -1);
+    outline-offset: var(--border-width-sm);
   }
 
   &[target='_blank'] {
@@ -805,12 +806,12 @@ html {
 
 // Form Elements
 
-.card-button {
+.button {
   align-content: center;
   align-items: center;
   align-self: flex-end;
-  background-color: var(--color-card);
-  border-color: var(--color-card-hover);
+  background-color: var(--color-card-hover);
+  border-color: var(--color-card-border);
   border-radius: var(--border-radius-sm);
   border-style: solid;
   border-width: var(--border-width-base);
@@ -1083,4 +1084,73 @@ html {
   min-height: calc(100dvh - var(--header-height));
   width: 100%;
   z-index: var(--earth-index);
+}
+
+// ========================================
+// MapLibre Theme Tweaks
+// ========================================
+.maplibregl-map {
+  // define the round corner of your controls
+  // (buttons container and attributions) and popups.
+  --ml-ctrl-border-radius: var(--border-radius-sm);
+  // font and size
+  --ml-font: 16px/24px 'Saira Condensed', sans-serif;
+  // outline color of the control buttons when they have the focus
+  --ml-c-outline: var(--color-accent);
+  // default state color of your ctrl icons,
+  // popup close button and scale ctrl border
+  --ml-c-icon-1: var(--color-text-subtle);
+  // color of your icons when hovered
+  --ml-c-icon-2: var(--color-text);
+  // define the background color of your controls,
+  // popups and geolocation dot border
+  // (bg color of your ctrl scale and boxzoom is
+  // calculated from this color with an opacity of 65%)
+  --ml-c-bg-1: var(--color-card-hover);
+  // define the background color of your controls when
+  // hovered (and user location dot border color)
+  --ml-c-bg-2: var(--color-card-hover);
+  // define the background color of your controls when
+  // active (and border color between control buttons)
+  --ml-c-bg-3: var(--color-card-hover);
+  // color of the anchors for the attribution links
+  --ml-c-link-1: var(--color-accent);
+  // color of the hovered anchors for the attribution links
+  --ml-c-link-2: var(--color-text);
+}
+
+@media screen {
+  .maplibregl-ctrl-attrib.maplibregl-compact {
+    border-color: var(--color-card-border) !important;
+    border-style: solid !important;
+    border-width: var(--border-width-base) !important;
+    min-height: 34px !important;
+  }
+}
+
+.maplibregl-ctrl-attrib {
+  a {
+    margin-inline: 4px;
+    text-decoration: underline dotted !important;
+    text-underline-offset: 0.25rem !important;
+    transition: var(--hover-color-effect);
+  }
+}
+
+.maplibregl-ctrl-attrib-inner {
+  color: var(--color-text-subtle);
+}
+
+@media screen {
+  .maplibregl-ctrl-attrib.maplibregl-compact-show {
+    padding: 0 34px 0 0.5rem !important;
+  }
+}
+
+@media screen {
+  .maplibregl-ctrl-attrib-button::before {
+    height: 26px !important;
+    margin: 4px !important;
+    width: 26px !important;
+  }
 }

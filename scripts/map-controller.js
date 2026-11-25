@@ -11,7 +11,8 @@ import {
   addProtocol,
 } from 'maplibre-gl';
 // CSS: provides the styling for map controls, markers and other map elements.
-import 'maplibre-gl/dist/maplibre-gl.css';
+import "maplibre-theme/icons.default.css";
+import "maplibre-theme/modern.css";
 // workerUrl: lets Vite bundle the worker correctly.
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 // https://makewithmaplibre.com/globe/
