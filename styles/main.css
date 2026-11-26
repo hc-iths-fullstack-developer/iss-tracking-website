@@ -163,7 +163,6 @@ html {
 .link:focus-visible {
   outline: var(--border-width-sm) solid var(--color-focus, var(--color-accent));
   border-radius: var(--border-radius-sm);
-  outline-offset: var(--border-width-sm);
 }
 
 .link[target="_blank"]::after {
@@ -469,6 +468,7 @@ html {
   aspect-ratio: 16/9;
   max-height: 40rem;
   min-height: 40rem;
+  overflow: hidden;
   width: 100%;
 }
 
@@ -931,6 +931,10 @@ html {
   z-index: var(--earth-index);
 }
 
+.maplibregl-canvas {
+  border-radius: var(--border-radius-sm);
+}
+
 .maplibregl-map {
   --ml-ctrl-border-radius: var(--border-radius-sm);
   --ml-font: 16px/24px 'Saira Condensed', sans-serif;
@@ -944,13 +948,25 @@ html {
   --ml-c-link-2: var(--color-text);
 }
 
-@media screen {
-  .maplibregl-ctrl-attrib.maplibregl-compact {
-    border-color: var(--color-card-border) !important;
-    border-style: solid !important;
-    border-width: var(--border-width-base) !important;
-    min-height: 34px !important;
-  }
+.maplibregl-compact {
+  border-color: var(--color-card-border) !important;
+  border-style: solid !important;
+  border-width: var(--border-width-base) !important;
+  min-height: 34px !important;
+  transition: var(--hover-background-color-effect), var(--hover-border-color-effect);
+}
+
+.maplibregl-compact:focus-visible {
+  outline: var(--border-width-sm) solid var(--color-focus, var(--color-accent));
+  border-radius: var(--border-radius-sm);
+}
+
+.maplibregl-compact:hover {
+  border-color: var(--color-accent) !important;
+}
+
+.maplibregl-compact-show {
+  padding: 0 34px 0 0.5rem !important;
 }
 
 .maplibregl-ctrl-attrib a {
@@ -960,20 +976,21 @@ html {
   transition: var(--hover-color-effect);
 }
 
+.maplibregl-ctrl-attrib a:focus-visible {
+  outline: var(--border-width-sm) solid var(--color-focus, var(--color-accent));
+  border-radius: var(--border-radius-sm);
+}
+
+.maplibregl-ctrl-attrib a[target="_blank"]::after {
+  content: " ↗";
+}
+
+.maplibregl-ctrl-attrib-button::before {
+  height: 26px !important;
+  margin: 4px !important;
+  width: 26px !important;
+}
+
 .maplibregl-ctrl-attrib-inner {
   color: var(--color-text-subtle);
-}
-
-@media screen {
-  .maplibregl-ctrl-attrib.maplibregl-compact-show {
-    padding: 0 34px 0 0.5rem !important;
-  }
-}
-
-@media screen {
-  .maplibregl-ctrl-attrib-button::before {
-    height: 26px !important;
-    margin: 4px !important;
-    width: 26px !important;
-  }
 }
