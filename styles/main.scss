@@ -472,7 +472,11 @@ html {
   align-items: stretch;
   display: grid;
   gap: var(--spacing-base);
-  grid-template-columns: repeat(auto-fit, minmax(var(--card-max-width), 1fr));
+  grid-template-columns: 100%;
+
+  @media (width >= $breakpoint-sm) {
+    grid-template-columns: repeat(auto-fit, minmax(var(--card-max-width), 1fr));
+  }
 }
 
 .card-group-position-telemetry {
