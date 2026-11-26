@@ -2,10 +2,10 @@
 // OPTIONS
 // ========================================
 $breakpoint-xs: 20rem; // 320px
-$breakpoint-sm: 40rem; // 640 px
-$breakpoint-md: 80rem; // 1280 px
-$breakpoint-lg: 105rem; // 1680 px
-$breakpoint-xl: 120rem; // 1920 px
+$breakpoint-sm: 40rem; // 640px
+$breakpoint-md: 80rem; // 1280px
+$breakpoint-lg: 105rem; // 1680px
+$breakpoint-xl: 120rem; // 1920px
 
 // Perfect Fourth
 
@@ -168,7 +168,7 @@ $p5-letter-space-6: -0.0243em;
   --indicator-width: 0.625em;
   --indicator-height: 0.625em;
 
-  --input-height: 2.875em;
+  --input-height: 2.875rem;
 
   // Borders
   --border-radius-base: 1px;
@@ -178,14 +178,16 @@ $p5-letter-space-6: -0.0243em;
   --border-width-sm: 2px;
 
   // Spacing
-  --spacing-xs: 0.625em;
-  --spacing-base: 1rem;
-  --spacing-sm: 2.25rem;
+  --spacing-3xs: 0.25rem; // 4px
+  --spacing-2xs: 0.5rem; // 8px
+  --spacing-xs: 0.625rem; // 10px
+  --spacing-base: 1rem; // 16px
+  --spacing-sm: 2.25rem; // 36px
 
   // Breakpoints
-  --viewport-width-sm: #{$breakpoint-xs};
-  --viewport-width-md: #{$breakpoint-md};
-  --viewport-width-lg: #{$breakpoint-lg};
+  --viewport-width-sm: #{$breakpoint-xs}; // 320px
+  --viewport-width-md: #{$breakpoint-md}; // 1280px
+  --viewport-width-lg: #{$breakpoint-lg}; // 1680px
 
   // Effects
   --hover-background-color-effect: background-color 0.3s ease;
@@ -278,7 +280,7 @@ html {
   font-style: normal;
   font-weight: var(--font-weight-text);
   text-decoration: underline dotted;
-  text-underline-offset: 0.25rem;
+  text-underline-offset: var(--spacing-3xs);
   transition: var(--hover-color-effect);
 
   &:hover {
@@ -810,7 +812,7 @@ html {
   align-content: center;
   align-items: center;
   align-self: flex-end;
-  background-color: var(--color-card-hover);
+  background-color: var(--color-card-bg);
   border-color: var(--color-card-border);
   border-radius: var(--border-radius-sm);
   border-style: solid;
@@ -1110,7 +1112,7 @@ html {
   // popups and geolocation dot border
   // (bg color of your ctrl scale and boxzoom is
   // calculated from this color with an opacity of 65%)
-  --ml-c-bg-1: var(--color-card-hover);
+  --ml-c-bg-1: var(--color-card-bg);
   // define the background color of your controls when
   // hovered (and user location dot border color)
   --ml-c-bg-2: var(--color-card-hover);
@@ -1127,9 +1129,10 @@ html {
   border-color: var(--color-card-border) !important;
   border-style: solid !important;
   border-width: var(--border-width-base) !important;
-  min-height: 34px !important;
+  min-height: var(--input-height) !important;
   transition:
     var(--hover-background-color-effect), var(--hover-border-color-effect);
+  padding: 0 calc(var(--input-height) - var(--border-width-base) * 2) 0 0 !important;
 
   &:focus-visible {
     @include keyboard-focus;
@@ -1141,12 +1144,11 @@ html {
 }
 
 .maplibregl-compact-show {
-  padding: 0 34px 0 0.5rem !important;
+  padding: 0 var(--input-height) 0 var(--spacing-base) !important;
 }
 
 .maplibregl-ctrl-attrib {
   a {
-    margin-inline: 4px; // 4+4+26=34px
     text-decoration: underline dotted !important;
     text-underline-offset: 0.25rem !important;
     transition: var(--hover-color-effect);
@@ -1164,13 +1166,24 @@ html {
 }
 
 .maplibregl-ctrl-attrib-button {
+  height: calc(var(--input-height) - var(--border-width-base) * 2) !important;
+  width: calc(var(--input-height) - var(--border-width-base) * 2) !important;
+
   &::before {
-    height: 26px !important;
-    margin: 4px !important;
-    width: 26px !important;
+    font-size: var(--font-size-xs) !important;
+    height: 12px !important;
+    line-height: var(--font-size-xs) !important;
+    margin: 16px !important;
+    width: 12px !important;
   }
 }
 
 .maplibregl-ctrl-attrib-inner {
   color: var(--color-text-subtle);
+  display: flex !important;
+  gap: 8px;
+  flex-wrap: wrap;
+  line-height: calc(
+    var(--input-height) - var(--border-width-base) * 2
+  ) !important;
 }

@@ -82,12 +82,14 @@
   --header-width: 100%;
   --indicator-width: 0.625em;
   --indicator-height: 0.625em;
-  --input-height: 2.875em;
+  --input-height: 2.875rem;
   --border-radius-base: 1px;
   --border-radius-sm: 5px;
   --border-width-base: 1px;
   --border-width-sm: 2px;
-  --spacing-xs: 0.625em;
+  --spacing-3xs: 0.25rem;
+  --spacing-2xs: 0.5rem;
+  --spacing-xs: 0.625rem;
   --spacing-base: 1rem;
   --spacing-sm: 2.25rem;
   --viewport-width-sm: 20rem;
@@ -152,7 +154,7 @@ html {
   font-style: normal;
   font-weight: var(--font-weight-text);
   text-decoration: underline dotted;
-  text-underline-offset: 0.25rem;
+  text-underline-offset: var(--spacing-3xs);
   transition: var(--hover-color-effect);
 }
 
@@ -673,7 +675,7 @@ html {
   align-content: center;
   align-items: center;
   align-self: flex-end;
-  background-color: var(--color-card-hover);
+  background-color: var(--color-card-bg);
   border-color: var(--color-card-border);
   border-radius: var(--border-radius-sm);
   border-style: solid;
@@ -941,7 +943,7 @@ html {
   --ml-c-outline: var(--color-accent);
   --ml-c-icon-1: var(--color-text-subtle);
   --ml-c-icon-2: var(--color-text);
-  --ml-c-bg-1: var(--color-card-hover);
+  --ml-c-bg-1: var(--color-card-bg);
   --ml-c-bg-2: var(--color-card-hover);
   --ml-c-bg-3: var(--color-card-hover);
   --ml-c-link-1: var(--color-accent);
@@ -952,8 +954,9 @@ html {
   border-color: var(--color-card-border) !important;
   border-style: solid !important;
   border-width: var(--border-width-base) !important;
-  min-height: 34px !important;
+  min-height: var(--input-height) !important;
   transition: var(--hover-background-color-effect), var(--hover-border-color-effect);
+  padding: 0 calc(var(--input-height) - var(--border-width-base) * 2) 0 0 !important;
 }
 
 .maplibregl-compact:focus-visible {
@@ -966,11 +969,10 @@ html {
 }
 
 .maplibregl-compact-show {
-  padding: 0 34px 0 0.5rem !important;
+  padding: 0 var(--input-height) 0 var(--spacing-base) !important;
 }
 
 .maplibregl-ctrl-attrib a {
-  margin-inline: 4px;
   text-decoration: underline dotted !important;
   text-underline-offset: 0.25rem !important;
   transition: var(--hover-color-effect);
@@ -985,12 +987,23 @@ html {
   content: " ↗";
 }
 
+.maplibregl-ctrl-attrib-button {
+  height: calc(var(--input-height) - var(--border-width-base) * 2) !important;
+  width: calc(var(--input-height) - var(--border-width-base) * 2) !important;
+}
+
 .maplibregl-ctrl-attrib-button::before {
-  height: 26px !important;
-  margin: 4px !important;
-  width: 26px !important;
+  font-size: var(--font-size-xs) !important;
+  height: 12px !important;
+  line-height: var(--font-size-xs) !important;
+  margin: 16px !important;
+  width: 12px !important;
 }
 
 .maplibregl-ctrl-attrib-inner {
   color: var(--color-text-subtle);
+  display: flex !important;
+  gap: 8px;
+  flex-wrap: wrap;
+  line-height: calc(var(--input-height) - var(--border-width-base) * 2) !important;
 }

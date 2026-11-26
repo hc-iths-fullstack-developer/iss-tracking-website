@@ -5,7 +5,6 @@ import { initializeIntervalController } from './interval-controller.js';
 // Initialize the map
 const map = initializeISSMap();
 
-
 // Add missing attrs to links in the attribution element of map libre
 // After map initialization
 const attributionElement = document.querySelector('.maplibregl-ctrl-attrib');
