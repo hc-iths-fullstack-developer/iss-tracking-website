@@ -757,10 +757,6 @@ html {
   border-radius: var(--border-radius-sm);
 }
 
-#set-interval-field {
-  display: none;
-}
-
 .hidden {
   display: none;
 }

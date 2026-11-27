@@ -2,11 +2,12 @@
 // It shows/hides the interval field
 // It updates the interval that refreshes the API
 
+import { toggleIntervalEditing } from './dashboard.js';
+
 const initializeIntervalController = (updateISSInterval) => {
   // Get DOM Elements
   const setIntervalButton = document.querySelector('#set-interval-button');
   const setIntervalFieldElement = document.querySelector('#set-interval-field');
-  const nextUpdateElement = document.querySelector('#next-update');
 
   // Shared variables
   let fieldVisibility = false;
@@ -22,23 +23,32 @@ const initializeIntervalController = (updateISSInterval) => {
       setIntervalFieldElement.reportValidity();
       return false;
     }
+
     setIntervalFieldElement.setCustomValidity('');
     updateISSInterval(seconds);
     return true;
   };
 
+  // Open interval field
+  const openIntervalField = () => {
+    fieldVisibility = true;
+    toggleIntervalEditing(true);
+    setIntervalFieldElement.focus();
+  };
+
+  // Close interval field
+  const closeIntervalField = () => {
+    fieldVisibility = false;
+    toggleIntervalEditing(false);
+  };
+
   // Show / Hide interval field
   const toggleIntervalField = () => {
     if (!fieldVisibility) {
-      fieldVisibility = true;
-      setIntervalFieldElement.style.setProperty('display', 'block');
-      nextUpdateElement.style.setProperty('display', 'none');
-      setIntervalFieldElement.focus();
+      openIntervalField();
     } else {
       if (!applyInterval()) return;
-      fieldVisibility = false;
-      setIntervalFieldElement.style.setProperty('display', 'none');
-      nextUpdateElement.style.setProperty('display', 'block');
+      closeIntervalField();
     }
   };
 
@@ -46,7 +56,7 @@ const initializeIntervalController = (updateISSInterval) => {
   setIntervalButton.addEventListener('click', toggleIntervalField);
 
   // Input validation for the interval field
-  // Allow only numbers 0-9 since we cannot disable typing of letters in the html element
+  // Allow only numbers 0-9 since we cannot disable typing of letters in the HTML element
   setIntervalFieldElement.addEventListener('input', () => {
     setIntervalFieldElement.value = setIntervalFieldElement.value.replace(
       /[^0-9]/g,
@@ -59,10 +69,10 @@ const initializeIntervalController = (updateISSInterval) => {
   setIntervalFieldElement.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
       event.preventDefault();
+
       if (!applyInterval()) return;
-      fieldVisibility = false;
-      setIntervalFieldElement.style.setProperty('display', 'none');
-      nextUpdateElement.style.setProperty('display', 'block');
+
+      closeIntervalField();
     }
   });
 };
