@@ -16,9 +16,9 @@ const initializeIntervalController = (updateISSInterval) => {
   const applyInterval = () => {
     const seconds = Number(setIntervalFieldElement.value);
 
-    if (!Number.isInteger(seconds) || seconds < 1 || seconds > 60) {
+    if (!Number.isInteger(seconds) || seconds < 5 || seconds > 60) {
       setIntervalFieldElement.setCustomValidity(
-        'Please enter a whole number between 1 and 60 seconds.',
+        'Please enter a whole number between 5 and 60 seconds.',
       );
       setIntervalFieldElement.reportValidity();
       return false;
