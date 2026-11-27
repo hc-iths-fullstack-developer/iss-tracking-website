@@ -11,8 +11,8 @@ import {
   addProtocol,
 } from 'maplibre-gl';
 // CSS: provides the styling for map controls, markers and other map elements.
-import "maplibre-theme/icons.default.css";
-import "maplibre-theme/modern.css";
+import 'maplibre-theme/icons.default.css';
+import 'maplibre-theme/modern.css';
 // workerUrl: lets Vite bundle the worker correctly.
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 // https://makewithmaplibre.com/globe/
@@ -83,40 +83,89 @@ const initializeISSMap = () => {
     zoom: 2,
   });
 
-  // Spin the globe:
-  // https://makewithmaplibre.com/globe/
+  // 6. Automatic globe rotation
+
+  // Rotation settings
+  const ROTATION_DELAY = 3000;
+  const ROTATION_DURATION = 2000;
+
   // Check whether the user prefers reduced motion
-  let shouldSpin = !window.matchMedia('(prefers-reduced-motion: reduce)')
+  const shouldSpin = !window.matchMedia('(prefers-reduced-motion: reduce)')
     .matches;
 
+  // Track active user interactions
+  const activeInteractions = new Set();
+
+  // Track the rotation timeout
+  let rotationTimeoutId = null;
+
+  // Rotate the globe
   const spinGlobe = () => {
-    // Do not spin if automatic rotation is disabled
-    // or if the user has zoomed in
-    if (!shouldSpin || map.getZoom() > 3.5) {
+    // Do not spin if:
+    // 1. rotation is disabled (because of accessibility reasons),
+    // 2. the user is interacting with the map (interactions present in set)
+    // 3. rotation timeout is still present (listener is not cleared)
+    // 4. or the map is very zoomed in (3.5)
+    if (
+      !shouldSpin ||
+      activeInteractions.size > 0 ||
+      rotationTimeoutId !== null ||
+      map.getZoom() > 3.5
+    ) {
       return;
     }
 
     const center = map.getCenter();
 
     // Animated transition between old and new values
+    // 6 degrees of longitude
     // https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#easeto
     map.easeTo({
       center: [center.lng + 6, center.lat],
-      duration: 2000,
+      duration: ROTATION_DURATION,
       easing: (t) => t,
     });
   };
 
-  // Adds a listener to start spinning once the map has loaded
-  // https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#once
+  // Pause automatic rotation during user interaction
+  const pauseGlobe = (interaction) => {
+    activeInteractions.add(interaction);
+    clearTimeout(rotationTimeoutId);
+    rotationTimeoutId = null;
+  };
+
+  // Resume automatic rotation after user interaction
+  const resumeGlobe = (interaction) => {
+    activeInteractions.delete(interaction);
+    // Wait until all interactions have ended
+    if (activeInteractions.size > 0) {
+      return;
+    }
+
+    clearTimeout(rotationTimeoutId);
+    rotationTimeoutId = setTimeout(() => {
+      rotationTimeoutId = null;
+      spinGlobe();
+    }, ROTATION_DELAY);
+  };
+
+  // Mouse dragging
+  map.on('dragstart', () => pauseGlobe('drag'));
+  map.on('dragend', () => resumeGlobe('drag'));
+
+  // Zooming (including mouse wheel)
+  map.on('zoomstart', () => pauseGlobe('zoom'));
+  map.on('zoomend', () => resumeGlobe('zoom'));
+
+  // Continue automatic rotation after each animation
+  map.on('moveend', () => {
+    if (activeInteractions.size === 0 && rotationTimeoutId === null) {
+      spinGlobe();
+    }
+  });
+
+  // Start rotation once the map has loaded
   map.once('load', spinGlobe);
-
-  // Adds a listener to continue spinning after each movement
-  // https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#on
-  map.on('moveend', spinGlobe);
-
-  map.dragPan.enable();
-  map.dragRotate.disable();
 
   return map;
 };
