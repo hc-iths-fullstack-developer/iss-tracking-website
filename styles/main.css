@@ -67,22 +67,28 @@
   --color-text: #fafaf8;
   --color-text-subtle: #b9b9b8;
   --color-wrapper: #0a0a0ad7;
+  --card-image-height: 12.875rem;
+  --card-image-max-width: 12.875rem;
+  --card-min-width: 25rem;
+  --card-max-width: max-content;
+  --card-preview-text-min-height: 6rem;
+  --footer-min-height: 12.5rem;
+  --footer-width: 100%;
+  --footer-section-max-width: 20rem;
+  --header-height: 3.75rem;
+  --header-min-width: 22.5rem;
+  --header-width: 100%;
+  --indicator-width: 0.625em;
+  --indicator-height: 0.625em;
+  --input-height: 2.875rem;
+  --logo-size: 1.75rem;
+  --map-height-base: 34rem;
+  --map-height-sm: 28rem;
   --margin-width-base: 0rem;
   --margin-width-sm: 3.125rem;
   --margin-width-md: 6.25rem;
   --margin-width-lg: 12.5rem;
   --margin-width-xl: 25rem;
-  --card-image-height: 12.875rem;
-  --card-image-max-width: 12.875rem;
-  --card-max-width: 25rem;
-  --card-preview-text-min-height: 6rem;
-  --footer-min-height: 12.5rem;
-  --footer-width: 100%;
-  --header-height: 3.75rem;
-  --header-width: 100%;
-  --indicator-width: 0.625em;
-  --indicator-height: 0.625em;
-  --input-height: 2.875rem;
   --border-radius-base: 1px;
   --border-radius-sm: 5px;
   --border-width-base: 1px;
@@ -91,8 +97,8 @@
   --spacing-2xs: 0.5rem;
   --spacing-xs: 0.625rem;
   --spacing-base: 1rem;
-  --spacing-sm: 2.25rem;
-  --viewport-width-sm: 20rem;
+  --spacing-sm: 1.75rem;
+  --viewport-width-sm: 22.5rem;
   --viewport-width-md: 80rem;
   --viewport-width-lg: 105rem;
   --hover-background-color-effect: background-color 0.3s ease;
@@ -232,7 +238,7 @@ html {
 .card-title {
   color: var(--color-text-subtle);
   font-family: "Saira Condensed", sans-serif;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-base);
   font-style: normal;
   font-weight: var(--font-weight-text);
   letter-spacing: var(--letter-space-2xs);
@@ -244,11 +250,27 @@ html {
 .data-text {
   color: var(--color-text);
   font-family: "Offside", sans-serif;
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-md);
   font-style: normal;
   font-weight: var(--font-weight-heading);
-  letter-spacing: var(--letter-space-2xs);
+  letter-spacing: var(--letter-space-md);
   line-height: var(--line-height-md);
+}
+
+@media (width >= 40rem) {
+  .data-text {
+    font-size: var(--font-size-lg);
+    letter-spacing: var(--letter-space-lg);
+    line-height: var(--line-height-lg);
+  }
+}
+
+@media (width >= 80rem) {
+  .data-text {
+    font-size: var(--font-size-xl);
+    letter-spacing: var(--letter-space-xl);
+    line-height: var(--line-height-xl);
+  }
 }
 
 .label-text {
@@ -339,12 +361,12 @@ html {
   align-items: stretch;
   display: grid;
   gap: var(--spacing-base);
-  grid-template-columns: 100%;
+  grid-template-columns: 1fr;
 }
 
 @media (width >= 40rem) {
   .card-group {
-    grid-template-columns: repeat(auto-fit, minmax(var(--card-max-width), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width), 1fr));
   }
 }
 
@@ -357,7 +379,7 @@ html {
 
 @media (width >= 80rem) {
   .card-group-position-telemetry {
-    grid-template-columns: 1fr var(--card-max-width);
+    grid-template-columns: 1fr auto;
   }
 }
 
@@ -407,6 +429,35 @@ html {
   display: list-item;
 }
 
+.grid {
+  align-items: center;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: var(--spacing-base);
+  width: 100%;
+}
+
+.grid .grid-cell {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.grid .grid-cell:nth-child(3n) {
+  grid-column: 1/-1;
+}
+
+@media (width >= 40rem) {
+  .grid {
+    grid-template-columns: max-content minmax(200px, 1fr) 1fr;
+    width: auto;
+  }
+
+  .grid .grid-cell:nth-child(3n) {
+    grid-column: auto;
+  }
+}
+
 .section {
   padding: var(--spacing-base);
 }
@@ -437,6 +488,12 @@ html {
   justify-content: start;
   margin-inline: var(--margin-width-base);
   padding-inline: var(--spacing-base);
+}
+
+@media (width >= 40rem) {
+  .container {
+    margin-inline: var(--margin-width-sm);
+  }
 }
 
 @media (width >= 80rem) {
@@ -473,24 +530,18 @@ html {
 }
 
 .map-wrapper {
-  aspect-ratio: 16/9;
-  max-height: 40rem;
-  min-height: 40rem;
+  height: var(--map-height-base);
+  min-height: auto;
   overflow: hidden;
   width: 100%;
 }
 
-.status-grid {
-  align-items: center;
-  display: grid;
-  grid-template-columns: 120px 120px 1fr;
-  gap: var(--spacing-base);
-}
-
-.status-grid .grid-cell {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
+@media (width >= 40rem) {
+  .map-wrapper {
+    aspect-ratio: 16/9;
+    height: auto;
+    min-height: var(--map-height-sm);
+  }
 }
 
 .video-wrapper {
@@ -567,12 +618,12 @@ html {
 
 .logo {
   background-color: var(--color-accent);
-  height: 28px;
+  height: var(--logo-size);
   mask-image: url("/images/iss-logo.svg");
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
-  width: 28px;
+  width: var(--logo-size);
 }
 
 .map-marker {
@@ -587,88 +638,6 @@ html {
 
 .map-marker.icon-iss {
   mask-image: url("/images/iss-logo.svg");
-}
-
-.map-marker::before {
-  content: "";
-  position: absolute;
-  border: var(--border-width-base) solid var(--color-accent);
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  animation: wave 1.5s infinite;
-}
-
-.map-marker::after {
-  content: "";
-  position: absolute;
-  border: var(--border-width-base) solid var(--color-accent);
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  animation: wave 1.5s infinite;
-  animation-delay: 0.6s;
-}
-
-@keyframes wave {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(3);
-    opacity: 0;
-  }
-}
-
-.pulse-loader {
-  background: var(--color-accent);
-  border-radius: 50%;
-  height: var(--indicator-height);
-  position: relative;
-  width: var(--indicator-width);
-}
-
-.pulse-loader::before {
-  animation: pulse 1.5s infinite;
-  border: var(--border-width-base) solid var(--color-accent);
-  border-radius: 50%;
-  content: "";
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
-.pulse-loader::after {
-  animation: pulse 1.5s infinite;
-  animation-delay: 0.6s;
-  border: var(--border-width-base) solid var(--color-accent);
-  border-radius: 50%;
-  content: "";
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(3);
-    opacity: 0;
-  }
 }
 
 .video {
@@ -703,6 +672,7 @@ html {
   font-family: "Saira Condensed", sans-serif;
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-button);
+  flex-shrink: 0;
   letter-spacing: var(--letter-space-2xs);
   transition: var(--hover-color-effect);
   text-align: center;
@@ -712,6 +682,7 @@ html {
 
 .button .button-icon {
   background-color: var(--color-text-subtle);
+  flex-shrink: 0;
   height: var(--font-size-xs);
   mask-size: contain;
   mask-repeat: no-repeat;
@@ -797,7 +768,7 @@ html {
 .footer-nav {
   display: grid;
   gap: var(--spacing-base);
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(var(--footer-section-max-width), 1fr));
   padding-block: var(--header-height);
   width: 100%;
 }
@@ -819,7 +790,6 @@ html {
   display: flex;
   height: auto;
   justify-content: center;
-  width: 100dvw;
 }
 
 .header-nav-group {
@@ -827,7 +797,8 @@ html {
   display: flex;
   flex-direction: row;
   height: 100%;
-  justify-content: start;
+  justify-content: center;
+  width: 100%;
 }
 
 .header-nav-group .header-nav-item {
@@ -840,7 +811,7 @@ html {
 .header-nav-group .header-nav-item .header-nav-link {
   color: var(--color-text-subtle);
   font-family: "Saira Condensed", sans-serif;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-base);
   height: 100%;
   isolation: isolate;
   letter-spacing: var(--letter-space-2xs);
@@ -889,12 +860,20 @@ html {
 
 .header-nav-group .header-nav-item:first-child {
   border-width: 0 var(--border-width-base);
-  min-width: 150px;
+  flex: 1;
+  min-width: 134px;
 }
 
 .header-nav-group .header-nav-item:last-child {
   border-width: 0 var(--border-width-base);
-  min-width: 150px;
+  flex: 1;
+  min-width: 134px;
+}
+
+@media (width >= 40rem) {
+  .header-nav-group {
+    width: auto;
+  }
 }
 
 .body {
@@ -926,9 +905,15 @@ html {
   border-bottom-width: var(--border-width-base);
   grid-area: header;
   height: var(--header-height);
+  min-width: var(--header-min-width);
   position: fixed;
   top: 0;
+  width: var(--header-width);
   z-index: var(--heaven-index);
+}
+
+.header .container {
+  padding-inline: unset;
 }
 
 .main {
