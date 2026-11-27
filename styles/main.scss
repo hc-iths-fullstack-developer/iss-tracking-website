@@ -1108,28 +1108,6 @@ html {
   --ml-c-link-2: var(--color-text);
 }
 
-.maplibregl-compact {
-  border-color: var(--color-card-border) !important;
-  border-style: solid !important;
-  border-width: var(--border-width-base) !important;
-  min-height: var(--input-height) !important;
-  transition:
-    var(--hover-background-color-effect), var(--hover-border-color-effect);
-  padding: 0 calc(var(--input-height) - var(--border-width-base) * 2) 0 0 !important;
-
-  &:focus-visible {
-    @include keyboard-focus;
-  }
-
-  &:hover {
-    border-color: var(--color-accent) !important;
-  }
-}
-
-.maplibregl-compact-show {
-  padding: 0 var(--input-height) 0 var(--spacing-base) !important;
-}
-
 .maplibregl-ctrl-attrib {
   a {
     text-decoration: underline dotted !important;
@@ -1148,6 +1126,32 @@ html {
   }
 }
 
+@media screen {
+  .maplibregl-ctrl-attrib.maplibregl-compact {
+    border-color: var(--color-card-border) !important;
+    border-style: solid !important;
+    border-width: var(--border-width-base) !important;
+    min-height: var(--input-height) !important;
+    transition:
+      var(--hover-background-color-effect), var(--hover-border-color-effect);
+    padding: 0 calc(var(--input-height) - var(--border-width-base) * 2) 0 0 !important;
+
+    &:focus-visible {
+      @include keyboard-focus;
+    }
+
+    &:hover {
+      border-color: var(--color-accent) !important;
+    }
+  }
+}
+
+@media screen {
+  .maplibregl-ctrl-attrib.maplibregl-compact-show {
+    padding: 0 var(--input-height) 0 var(--spacing-base) !important;
+  }
+}
+
 .maplibregl-ctrl-attrib-button {
   height: calc(var(--input-height) - var(--border-width-base) * 2) !important;
   width: calc(var(--input-height) - var(--border-width-base) * 2) !important;
@@ -1161,9 +1165,15 @@ html {
   }
 }
 
+@media screen {
+  .maplibregl-ctrl-attrib.maplibregl-compact-show
+    .maplibregl-ctrl-attrib-inner {
+    display: flex !important;
+  }
+}
+
 .maplibregl-ctrl-attrib-inner {
   color: var(--color-text-subtle);
-  display: flex !important;
   gap: 8px;
   flex-wrap: wrap;
   line-height: calc(
