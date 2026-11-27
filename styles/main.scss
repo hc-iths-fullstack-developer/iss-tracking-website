@@ -552,6 +552,7 @@ html {
 .footer-list {
   color: var(--color-text-subtle);
   list-style: square inside;
+  margin-bottom: var(--spacing-base);
 
   .footer-list-item {
     display: list-item;
