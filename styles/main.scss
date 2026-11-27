@@ -708,7 +708,7 @@ html {
   justify-content: center;
 
   &.loader-telemetry {
-    height: calc(var(--line-height-md) * var(--font-size-xl));
+    height: calc(var(--line-height-xl) * var(--font-size-xl));
   }
 
   span {
