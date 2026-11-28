@@ -842,28 +842,30 @@ html {
     cursor: not-allowed;
   }
 
-  &:not(:disabled):hover {
-    background-color: var(--color-card-hover);
-    border-color: var(--color-accent);
+  &:not(:disabled) {
+    &:hover {
+      background-color: var(--color-card-hover);
+      border-color: var(--color-accent);
 
-    .button-text {
-      color: var(--color-text);
+      .button-text {
+        color: var(--color-text);
+      }
+
+      .button-icon {
+        background-color: var(--color-text);
+      }
     }
 
-    .button-icon {
-      background-color: var(--color-text);
-    }
-  }
+    &:focus-visible {
+      @include keyboard-focus;
 
-  &:not(:disabled):focus-visible {
-    @include keyboard-focus;
+      .button-text {
+        color: var(--color-text);
+      }
 
-    .button-text {
-      color: var(--color-text);
-    }
-
-    .button-icon {
-      background-color: var(--color-text);
+      .button-icon {
+        background-color: var(--color-text);
+      }
     }
   }
 }
