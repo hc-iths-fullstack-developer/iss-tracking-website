@@ -1,5 +1,4 @@
 // This module handles API fetching
-
 import axios from 'axios';
 
 // 1. Define API endpoint

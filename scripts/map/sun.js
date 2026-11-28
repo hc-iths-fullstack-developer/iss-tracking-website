@@ -2,7 +2,6 @@
 // The subsolar point for any moment, the Sun's altitude seen from any place,
 // the light position that points MapLibre's atmosphere at it,
 // and sky colors for the Sun's altitude.
-
 const RAD = Math.PI / 180;
 const J2000 = Date.UTC(2000, 0, 1, 12);
 const DAY = 86_400_000;

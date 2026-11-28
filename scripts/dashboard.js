@@ -1,8 +1,6 @@
 // This module receives and displays data on the dashboard
 // It shows, hides and updates elements that display data
 // As well as loading elements, status elements and placeholders
-
-// Get DOM Elements
 const altitudeElement = document.querySelector('#iss-altitude');
 const velocityElement = document.querySelector('#iss-velocity');
 const latitudeElement = document.querySelector('#iss-latitude');
