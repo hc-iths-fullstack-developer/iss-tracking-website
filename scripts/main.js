@@ -1,6 +1,7 @@
 import { initializeISSMap } from './map-controller.js';
 import { initializeISSController, updateISSInterval } from './iss-controller';
 import { initializeIntervalController } from './interval-controller.js';
+import { initializeUpdateController } from './update-controller.js';
 
 // Initialize the map
 const map = initializeISSMap();
@@ -25,3 +26,6 @@ initializeISSController(map);
 
 // Initialize interval controller
 initializeIntervalController(updateISSInterval);
+
+// Initialize update controller
+initializeUpdateController();

@@ -146,6 +146,23 @@ const updateISSInterval = (seconds) => {
   }
 };
 
+// Request an immediate ISS update
+const requestImmediateUpdate = () => {
+  if (!connecting) return;
+  // Clear the existing timeout
+  // so that there are no two scheduled updates
+  clearTimeout(updateTimeout);
+  updateTimeout = null;
+  // Hide data elements while loading
+  toggleTelemetry(false);
+  toggleStatusElements(false);
+  // Show loaders
+  toggleLoaders(true);
+  // Show connecting status
+  updateConnectionStatus('connecting');
+  updateISSPosition();
+};
+
 // Initialize ISS controller
 const initializeISSController = (mapInstance) => {
   map = mapInstance;
@@ -155,4 +172,4 @@ const initializeISSController = (mapInstance) => {
   connectDisconnectToggle.addEventListener('click', toggleConnection);
 };
 
-export { initializeISSController, updateISSInterval };
+export { initializeISSController, requestImmediateUpdate, updateISSInterval };

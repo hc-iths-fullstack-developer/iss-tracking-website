@@ -29,7 +29,6 @@ const updateDashboardVisibility = () => {
   loadingElements.forEach((element) => {
     element.classList.toggle('hidden', !loadersVisible);
   });
-
   // Show or hide telemetry elements
   const telemetryElements = [
     altitudeElement,
@@ -37,25 +36,20 @@ const updateDashboardVisibility = () => {
     latitudeElement,
     longitudeElement,
   ];
-
   telemetryElements.forEach((element) => {
     element.classList.toggle('hidden', !telemetryVisible);
   });
-
   // Show or hide status elements
   lastUpdateElement.classList.toggle('hidden', !statusElementsVisible);
-
   // Show or hide Next Update element
   nextUpdateElement.classList.toggle(
     'hidden',
     !statusElementsVisible || intervalEditing,
   );
-
   nextUpdateLoaderElement.classList.toggle(
     'hidden',
     !loadersVisible || intervalEditing,
   );
-
   setIntervalFieldElement.classList.toggle('hidden', !intervalEditing);
 };
 
@@ -85,12 +79,13 @@ const toggleIntervalEditing = (editing) => {
 
 // Reset dashboard data to placeholders
 const resetDashboard = () => {
-  altitudeElement.textContent = '--';
-  velocityElement.textContent = '--';
-  latitudeElement.textContent = '--';
-  longitudeElement.textContent = '--';
-  lastUpdateElement.textContent = '--';
-  nextUpdateElement.textContent = '--';
+  const placeholderText = '--';
+  altitudeElement.textContent = placeholderText;
+  velocityElement.textContent = placeholderText;
+  latitudeElement.textContent = placeholderText;
+  longitudeElement.textContent = placeholderText;
+  lastUpdateElement.textContent = placeholderText;
+  nextUpdateElement.textContent = placeholderText;
 };
 
 // Update connection status elements
@@ -113,9 +108,7 @@ const updateConnectionStatus = (status) => {
       className: 'indicator-error',
     },
   };
-
   const currentStatus = statuses[status];
-
   apiConnectionElement.textContent = currentStatus.text;
   connectionIndicatorElement.className = `connection-indicator ${currentStatus.className}`;
 };
