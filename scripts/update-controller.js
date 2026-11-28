@@ -1,11 +1,18 @@
 // This module handles an immediate fetching of the data
 import { requestImmediateUpdate } from './iss-controller.js';
 
-const initializeUpdateController = () => {
-  // Get DOM Elements
-  const updateButtonElement = document.querySelector('#update-button');
+// Get DOM Elements
+const updateButtonElement = document.querySelector('#update-button');
 
-  updateButtonElement.addEventListener('click', requestImmediateUpdate);
+// Toggle the update button
+const toggleUpdateButton = (enabled) => {
+  updateButtonElement.disabled = !enabled;
 };
 
-export { initializeUpdateController };
+// Initialize update controller
+const initializeUpdateController = () => {
+  updateButtonElement.addEventListener('click', requestImmediateUpdate);
+  toggleUpdateButton(false);
+};
+
+export { initializeUpdateController, toggleUpdateButton };

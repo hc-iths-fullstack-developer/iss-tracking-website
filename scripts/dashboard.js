@@ -95,7 +95,7 @@ const updateConnectionStatus = (status) => {
       text: 'Connecting',
       className: 'indicator-connecting',
     },
-    connected: {
+    live: {
       text: 'Live',
       className: 'indicator-live',
     },

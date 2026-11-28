@@ -708,29 +708,34 @@ html {
   mask-image: url("/images/update-icon.svg");
 }
 
-.button:hover {
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button:not(:disabled):hover {
   background-color: var(--color-card-hover);
   border-color: var(--color-accent);
 }
 
-.button:hover .button-text {
+.button:not(:disabled):hover .button-text {
   color: var(--color-text);
 }
 
-.button:hover .button-icon {
+.button:not(:disabled):hover .button-icon {
   background-color: var(--color-text);
 }
 
-.button:focus-visible {
+.button:not(:disabled):focus-visible {
   outline: var(--border-width-sm) solid var(--color-focus, var(--color-accent));
   border-radius: var(--border-radius-sm);
 }
 
-.button:focus-visible .button-text {
+.button:not(:disabled):focus-visible .button-text {
   color: var(--color-text);
 }
 
-.button:focus-visible .button-icon {
+.button:not(:disabled):focus-visible .button-icon {
   background-color: var(--color-text);
 }
 

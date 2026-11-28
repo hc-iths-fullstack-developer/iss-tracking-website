@@ -837,7 +837,12 @@ html {
     }
   }
 
-  &:hover {
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled):hover {
     background-color: var(--color-card-hover);
     border-color: var(--color-accent);
 
@@ -850,7 +855,7 @@ html {
     }
   }
 
-  &:focus-visible {
+  &:not(:disabled):focus-visible {
     @include keyboard-focus;
 
     .button-text {

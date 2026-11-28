@@ -13,6 +13,7 @@ import {
   toggleStatusElements,
   resetDashboard,
 } from './dashboard.js';
+import { toggleUpdateButton } from './update-controller.js';
 
 // Shared variables
 let connected = false;
@@ -73,7 +74,9 @@ const updateISSPosition = async () => {
     // Show and set data elements to a readable format
     updateDashboard(data);
     updateLastUpdate();
-    updateConnectionStatus('connected');
+    updateConnectionStatus('live');
+    // Enable updateButton
+    toggleUpdateButton(true);
     // Display initial countdown immediately for UI improvement
     // as countDownTimer does not execute for the first 1s
     updateCountdown(updateInterval / 1000);
@@ -124,6 +127,8 @@ const toggleConnection = () => {
     // Show disconnected status
     updateConnectionStatus('disconnected');
     resetDashboard();
+    // Disable updateButton
+    toggleUpdateButton(false);
     // Toggle button to show connect action
     buttonTextElement.textContent = 'Connect';
     buttonIconElement.className = 'button-icon icon-connect';
