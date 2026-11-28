@@ -1,13 +1,19 @@
+// This module manages the control modules centrally
+// It initializes and connects other modules together
 import { initializeISSMap } from './map-controller.js';
-import { initializeISSController, updateISSInterval } from './iss-controller';
+import {
+  initializeISSController,
+  updateISSInterval,
+  getISSInterval,
+} from './iss-controller.js';
 import { initializeIntervalController } from './interval-controller.js';
 import { initializeUpdateController } from './update-controller.js';
 
-// Initialize the map
+// Initialize a map instance
 const map = initializeISSMap();
 
 // Add missing attrs to links in the attribution element of map libre
-// After map initialization
+// After the map has been initialized
 const attributionElement = document.querySelector('.maplibregl-ctrl-attrib');
 const observer = new MutationObserver(() => {
   attributionElement.querySelectorAll('a').forEach((link) => {
@@ -25,7 +31,7 @@ observer.observe(attributionElement, {
 initializeISSController(map);
 
 // Initialize interval controller
-initializeIntervalController(updateISSInterval);
+initializeIntervalController(updateISSInterval, getISSInterval);
 
 // Initialize update controller
 initializeUpdateController();

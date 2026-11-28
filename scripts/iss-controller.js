@@ -13,15 +13,30 @@ import {
   resetDashboard,
 } from './dashboard.js';
 import { toggleUpdateButton } from './update-controller.js';
+import { getStorageItem, setStorageItem } from './helpers/storage-manager.js';
 
 // Shared variables
 let connected = false;
 let connecting = false;
 let countdownTimer = null;
 let nextUpdateTime = null;
-let updateInterval = 5000;
 let updateTimeout = null;
 let map = null;
+
+// Set and get the interval from local storage
+// If no value use default in ms
+const DEFAULT_INTERVAL = 5000;
+const savedInterval = Number(
+  getStorageItem('updateInterval', DEFAULT_INTERVAL),
+);
+
+// Make sure the interval is between 5000 and 60000ms (inclusive)
+let updateInterval =
+  Number.isInteger(savedInterval) &&
+  savedInterval >= 5000 &&
+  savedInterval <= 60000
+    ? savedInterval
+    : DEFAULT_INTERVAL;
 
 // Fetch and display ISS data
 const updateISSPosition = async () => {
@@ -136,8 +151,10 @@ const toggleConnection = () => {
 
 // Change update interval
 const updateISSInterval = (seconds) => {
-  // Convert to ms
+  // Convert to ms as we store in ms
   updateInterval = seconds * 1000;
+  // Save selected interval to local storage
+  setStorageItem('updateInterval', updateInterval);
   if (connecting) {
     // Reset timeout
     clearTimeout(updateTimeout);
@@ -176,4 +193,13 @@ const initializeISSController = (mapInstance) => {
   connectDisconnectToggle.addEventListener('click', toggleConnection);
 };
 
-export { initializeISSController, requestImmediateUpdate, updateISSInterval };
+// Getter for the interval field
+// Converted to seconds to use as the field value
+const getISSInterval = () => updateInterval / 1000;
+
+export {
+  getISSInterval,
+  initializeISSController,
+  requestImmediateUpdate,
+  updateISSInterval,
+};
